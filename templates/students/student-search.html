@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}    
+
+{% if student and querry is not NULL %}
+    <ul>
+        {% for s in student %}
+            <li>{{ s.student_fname }} {{ s.student_lname }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    Student does not exist!
+{% endif %}
+
+
+
+{% endblock %}

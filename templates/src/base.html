@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block styles %}
+    {% endblock %}
+    <style>
+        nav {
+            display: flex;
+            justify-content: space-between;
+            margin-right: 50px;
+        }
+        nav ul {
+            list-style-type: none;
+        }
+        nav ul li{
+            display: inline-block;       
+        }
+    </style>
+    <title>Site</title>
+
+</head>
+<body>
+    <nav>        
+        <ul>            
+            <li>
+                <a href="{% url 'home' %}"> Home </a>
+            </li>
+            <li>
+                <a href="{% url 'programs' %}"> Programs </a>
+            </li>
+            <li>
+                <a href="{% url 'lion-cubs' %}"> Lion Cubs </a>
+            </li>
+            <li>
+                <a href="{% url 'evolution-academy' %}" > Evolution Academy </a>
+            </li>
+            <li>
+                <a href="{% url 'evolution-futsal-club' %}"> Evolution Futsal Club</a>
+            </li>
+            <li>
+                <a href="{% url 'private-training' %}"> Private Training </a>
+            </li>
+            <li>
+                <a href="{% url 'schools' %}"> Schools </a>
+            </li>
+            <li>
+                <a href="{% url 'enroll' %}"> Enroll </a>
+            </li>
+            
+            {% if user.is_superuser %}
+                <li>
+                    <a href="{% url 'students' %}"> Students</a>
+                </li>
+            {% endif %}            
+        </ul>
+        <div class="login">
+            <ul>                
+                {% if user.is_authenticated %}
+                    <li>
+                        <a href="/"> {{ user.username }}</a>
+                    </li>                       
+                    <li>
+                        <a href="{% url 'logout' %}"> Logout </a>
+                    </li>                
+                {% else %}   
+                    <li>
+                        <a href="{% url 'login' %}"> Login </a>
+                    </li>      
+                {% endif %}
+            </ul>
+        </div>        
+        
+    </nav>
+
+    <p>
+    {% block content %}
+        nada aqui
+    {% endblock content %}
+    </p>
+</body>
+</html>

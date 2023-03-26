@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}    
+    {{ sd.student_fname }} {{ sd.student_lname}} {{ sd.birth_date }} {{ sd.gender}}
+
+    
+    <form action=".">
+        <div>
+            <select name="Programs" id="programs">
+                <option value="lion-cubs">Lion Cubs</option>
+                <option value="evolution-academy">Evolution Academy</option>
+                <option value="evolution-futsal-club">Evolution Futsal Club</option>
+            </select>
+        </div>
+    </form>
+
+{% endblock %}

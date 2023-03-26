@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+    
+<div style="display: inline-flex;">
+    <div>          
+        <ul>
+            Lion Cubs
+            {% for s in sd %}
+                {% if s.program == 'lion cubs'%}
+                    <li>
+                        <a href='{{ s.get_absolute_url }}' >{{ s.student_fname }}</a> 
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>    
+    </div>
+    <div> 
+        <ul>
+            Evolution Academy
+            {% for s in sd %}
+                {% if s.program == 'evolution academy'%}
+                    <li>
+                        <a href='{{ s.get_absolute_url }}' >{{ s.student_fname }}</a> 
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>  
+    </div>
+    <div>
+        <ul>
+            Evolution Futsal Club
+            {% for s in sd %}
+                {% if s.program == 'evolution fusal club'%} 
+                    <li>
+                        <a href='{{ s.get_absolute_url }}' >{{ s.student_fname }}</a> 
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>  
+    </div>
+</div>
+
+
+ 
+
+
+
+
+
+
+
+{% endblock content %}

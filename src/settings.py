@@ -27,21 +27,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-b#9m$r#9#a75+yo!#iuy3t^^%w3n02ejgzu#jwp1u&d^!0vt7)')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-<<<<<<< HEAD
 DEBUG = str(os.environ.get('DJANGO_DEBUG')) == '1'
-
 
 ALLOWED_HOSTS = [] 
 
 if DEBUG is False:
     ALLOWED_HOSTS.append(str(os.environ.get('DJANGO_ALLOWED_HOSTS')))
-    print ( ALLOWED_HOSTS)
-=======
-DEBUG = False
-
-ALLOWED_HOSTS = ['ChenRJ.pythonanywhere.com']
->>>>>>> cc70ba635879f8f36169513b282507e1e7460c84
-
 
 # Application definition
 

@@ -14,6 +14,8 @@ from pathlib import Path
 import os
 import sys
 
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -22,12 +24,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-b#9m$r#9#a75+yo!#iuy3t^^%w3n02ejgzu#jwp1u&d^!0vt7)'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-b#9m$r#9#a75+yo!#iuy3t^^%w3n02ejgzu#jwp1u&d^!0vt7)')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = str(os.environ.get('DJANGO_DEBUG')) == '1'
 
-ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS = [] 
+
+if DEBUG is False:
+    ALLOWED_HOSTS.append(str(os.environ.get('DJANGO_ALLOWED_HOSTS')))
+    print ( ALLOWED_HOSTS)
 
 
 # Application definition

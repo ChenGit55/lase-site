@@ -10,7 +10,7 @@ def main():
     dotenv.read_dotenv()
     
     if os.environ.get('DJANGO_ENV') == 'dev':
-        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'myproject.settings_dev')
+        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'src.settings_dev')
     else:
         os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'src.settings')
     try:

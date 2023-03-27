@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-b#9m$r#9#a75+y
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = str(os.environ.get('DJANGO_DEBUG')) == '1'
 
-ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', '').split(',')
+ALLOWED_HOSTS = []
 # Application definition
 
 PROJECT_ROOT = os.path.dirname(__file__)

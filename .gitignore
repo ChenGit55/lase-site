@@ -1,4 +1,5 @@
 .log
 .env
 __pycache__/
-db.squlite3
+db.sqlite3
+**/migrations/

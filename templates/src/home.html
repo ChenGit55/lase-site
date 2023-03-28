@@ -1,10 +1,16 @@
 {% extends "base.html" %}
 {% load static %}
 {% block styles %}        
-    <link rel="stylesheet" href="{% static 'src/css/home.css'%}">
-    
+    <link rel="stylesheet" href="{% static 'src/css/home.css'%}">    
 {% endblock %}
 
+{% block title %}Home{% endblock title %}
+
 {% block content %}
-Home
+
+<div id="text">
+    BRAZILIAN SOCCER TEACHING METHODOLOGY IN LA
+</div>
+
+
 {% endblock content %}

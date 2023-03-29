@@ -18,76 +18,72 @@
     <title>Site</title>
 
 </head>
-<body class="m-5">
-    <object id="logo" type="image/svg+xml" data="{% static 'src/img/lase-logo.svg' %}"></object>
-    <nav>        
-        <ul>
-            <li>
-                <a href="{% url 'home' %}">
-                    
-                </a>
-            </li>            
-            <li>
-                <a href="{% url 'home' %}"> Home </a>
-            </li>
-            <li>
-                <a href="{% url 'programs' %}"> Programs </a>
-            </li>
-            <li>
-                <a href="{% url 'lion-cubs' %}"> Lion Cubs </a>
-            </li>
-            <li>
-                <a href="{% url 'evolution-academy' %}" > Evolution Academy </a>
-            </li>
-            <li>
-                <a href="{% url 'evolution-futsal-club' %}"> Evolution Futsal Club</a>
-            </li>
-            <li>
-                <a href="{% url 'private-training' %}"> Private Training </a>
-            </li>
-            <li>
-                <a href="{% url 'schools' %}"> Schools </a>
-            </li>
-            <li>
-                <a href="{% url 'enroll' %}"> Enroll </a>
-            </li>
-            
-            {% if user.is_superuser %}
+<body >
+    <div class="bgpapper">
+        <object id="logo" type="image/svg+xml" data="{% static 'src/img/lase-logo.svg' %}"></object>
+        <nav class="login">
+                <ul>
+                    {% if user.is_authenticated %}
+
+                    {% if user.is_superuser %}
+                        <li>
+                            <a href="{% url 'students' %}"> Students |</a>
+                        </li>
+                    {% endif %}
+                        <li>
+                            <a href="/">{{ user.username }}</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'logout' %}">Logout</a>
+                        </li>
+                    {% else %}
+                        <li>
+                            <a href="{% url 'login' %}">Login</a>
+                        </li>
+                    {% endif %}
+                </ul>
+        </nav>
+        <nav>
+            <ul>
                 <li>
-                    <a href="{% url 'students' %}"> Students</a>
+                    <a href="{% url 'home' %}">Home</a>
                 </li>
-            {% endif %}            
-        </ul>
-        <div class="login">
-            <ul>                
-                {% if user.is_authenticated %}
-                    <li>
-                        <a href="/"> {{ user.username }}</a>
-                    </li>                       
-                    <li>
-                        <a href="{% url 'logout' %}"> Logout </a>
-                    </li>                
-                {% else %}   
-                    <li>
-                        <a href="{% url 'login' %}"> Login </a>
-                    </li>      
-                {% endif %}
+                <li>
+                    <a href="{% url 'programs' %}">Programs</a>
+                </li>
+                <li>
+                    <a href="{% url 'lion-cubs' %}">Lion Cubs</a>
+                </li>
+                <li>
+                    <a href="{% url 'evolution-academy' %}" >Evolution Academy</a>
+                </li>
+                <li>
+                    <a href="{% url 'evolution-futsal-club' %}">Evolution Futsal Club</a>
+                </li>
+                <li>
+                    <a href="{% url 'private-training' %}">Private Training</a>
+                </li>
+                <li>
+                    <a href="{% url 'schools' %}">Schools</a>
+                </li>
+                <li>
+                    <a href="{% url 'enroll' %}"> Enroll </a>
+                </li>
             </ul>
-        </div>        
-        
-    </nav>
+        </nav>
+        <header>
+            <h1>
+                {% block title %}{% endblock title %}
+            </h1>
+        </header>
 
-    <header>
-        <h1>
-            {% block title %}{% endblock title %}
-        </h1>
-    </header>
+        <p>
+        {% block content %}
+            nada aqui
+        {% endblock content %}
+        </p>
+    </div>
 
-    <p>
-    {% block content %}
-        nada aqui
-    {% endblock content %}
-    </p>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-5Y5g5PeFWQTIc5r5f+WTZ/kQUbhkGVNHsbzo+BFQmcQjz9XGqa/xXaMDb1EHzJnF" crossorigin="anonymous"></script>
 
 </body>

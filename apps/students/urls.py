@@ -3,7 +3,7 @@ from .views import student_view, student_detail_view, student_create_view ,stude
 
 urlpatterns = [
     path('', student_view, name= 'students'),
-    path("search/", student_search_view, name="student-search"),
-    path('enroll/', student_create_view, name='enroll'),
     path('details/<slug:slug>', student_detail_view, name='details'),
+    path('enroll/', student_create_view, name='enroll'),
+    path("search/", student_search_view, name="student-search"),
 ]

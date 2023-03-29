@@ -7,7 +7,6 @@ from django.db.models.signals import pre_save, post_save
 from django.core.validators import RegexValidator
 from django.utils import timezone
 from .utils import slugify_instances
-from programs.models import Activity
 
 now = timezone.now()
 today = now.strftime("%Y-%m-%d")
@@ -18,13 +17,15 @@ class Student(models.Model):
 
     def get_absolute_url(self):
         return reverse('details', kwargs={"slug" : self.slug}) #return a detail url with the right slug
-    
+
 
     #creating gender options
     GENDER_CHOICES =[
         ('B', 'Boy'),
         ("G", 'Girl'),
     ]
+
+    #creating a programs options
     PROGRAMS_CHOICES =[
         ('lion cubs', 'Lion Cubs'),
         ('evolution academy', 'Evolution Academy'),
@@ -45,10 +46,10 @@ class Student(models.Model):
     student_fname = models.CharField(max_length=50)
     student_lname = models.CharField(max_length=100)
     birth_date = models.DateField(max_length=8, default=today, null=True, blank=True)
-    gender = models.CharField(max_length=1, choices=GENDER_CHOICES, null=True, blank=True)  
+    gender = models.CharField(max_length=1, choices=GENDER_CHOICES, null=True, blank=True)
     additional_info = models.TextField(max_length=1000, null=True, blank=True)
 
-    #address info   
+    #address info
     street = models.CharField(max_length=100, null=True, blank=True)
     city = models.CharField(max_length=100, null=True, blank=True)
     postal_code = models.CharField(max_length=10, null=True, blank=True)
@@ -113,15 +114,18 @@ class Student(models.Model):
     parent_lname = models.CharField(max_length=50, default='', null=True, blank=True)
     parent_email = models.EmailField(max_length=300, default='', null=True, blank=True)
     parent_phone = models.CharField(validators=[phone_ragex], max_length=14, null=True, blank=True)
-    
+
     #emergency contatct info
     emergency_fname = models.CharField(max_length=50, null=True, blank=True)
     emergency_lname = models.CharField(max_length=50, null=True, blank=True)
     emergency_phone = models.CharField(validators=[phone_ragex], max_length=14, null=True, blank=True)
-    
+
     #who filled out the form
     filled_out_fname = models.CharField(max_length=50, null=True, blank=True)
     filled_out_lname = models.CharField(max_length=50, null=True, blank=True)
+
+    def __str__(self):
+        return f'{self.id} {self.student_fname} {self.student_lname}'
 
 
 
@@ -138,3 +142,28 @@ def student_post_save(sender, instance, created,*args,**kwargs):
         slugify_instances(instance, save=True)
 
 post_save.connect(student_post_save, sender=Student)
+
+
+
+class Statistic(models.Model):
+
+    student = models.ForeignKey(Student, on_delete=models.CASCADE)
+    strength = models.IntegerField()
+    speed = models.IntegerField()
+    agility = models.IntegerField()
+    stamina = models.IntegerField()
+    physical = models.IntegerField()
+
+
+    # def save(self, *args, **kwargs):
+    #     student_stats = Student.objects.get
+    #     student_exist = Statistic.objects.filter(student=self.student).first()
+    #     if student_exist:
+    #         student_exist.strength = self.strength
+    #         student_exist.speed = self.speed
+    #         student_exist.agility = self.agility
+    #         student_exist.stamina = self.stamina
+    #         student_exist.physical = self.physical
+    #         student_exist.save()
+    #     else:
+    #         super(Statistic, self).save(*args, **kwargs)

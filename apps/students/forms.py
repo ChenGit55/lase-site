@@ -1,5 +1,5 @@
-from django import forms 
-from .models import Student
+from django import forms
+from .models import Student, Statistic
 
 class StudentForm(forms.ModelForm):
     class Meta:
@@ -18,15 +18,7 @@ class StudentForm(forms.ModelForm):
         data = self.cleaned_data
         return data
 
-
-
-class StudentFormOld(forms.Form):
-    s_fname = forms.CharField()
-    s_lname = forms.CharField()
-
-
-
-
-    def clean(self):
-        cleaned_data = self.cleaned_data
-        return cleaned_data
+class StatisticForm(forms.ModelForm):
+    class Meta:
+        model = Statistic
+        fields =['strength', 'speed', 'agility', 'stamina', 'physical']

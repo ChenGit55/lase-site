@@ -1,17 +1,18 @@
 from django.http import Http404
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-from .models import Student
-from .forms import StudentForm
+from .models import Student, Statistic
+from .forms import StudentForm, StatisticForm
+from .utils import superuser_required
 
 # Create your views here.
 
 def student_search_view(request):
     query = request.GET.get("q") #get the input text by the name
     student_detail = None
-    if query is not None:        
+    if query is not None:
         student_detail = Student.objects.filter(slug__icontains= query)
-           
+
     context = {
         'student' : student_detail,
         'qerry' : query
@@ -19,7 +20,7 @@ def student_search_view(request):
 
     return render(request, 'student-search.html', context )
 
-@login_required
+@superuser_required
 def student_view(request):
 
     students_qs = Student.objects.all() #get a querry set from Student class
@@ -46,18 +47,21 @@ def student_create_view(request):
 
 
 def student_detail_view(request, slug=None):
-    
+    form = StatisticForm(request.POST or None)
+
     if slug is not None:
         try:
             student_detail = Student.objects.get(slug=slug) #get slug if it is not empyt
         except Student.MultipleObjectsReturned:
-            student_detail = Student.objects.filter(slug=slug).first() 
+            student_detail = Student.objects.filter(slug=slug).first()
         except Student.DoesNotExist:
             raise Http404
         except:
             raise Http404
-
+    statistic = Statistic.objects.get()
     context = {
-        'sd': student_detail
+        'sd': student_detail,
+        'stats': statistic,
+        'form': form,
     }
     return render(request, 'details.html', context=context)

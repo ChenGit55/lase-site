@@ -1,17 +1,23 @@
 {% extends 'base.html' %}
 {% block title %}Details{% endblock title %}
-{% block content %}    
+{% block content %}
     {{ sd.student_fname }} {{ sd.student_lname}} {{ sd.birth_date }} {{ sd.gender}}
+    <div>
+         {{ stats.strength }}
+    </div>
 
-    
-    <form action=".">
-        <div>
-            <select name="Programs" id="programs">
-                <option value="lion-cubs">Lion Cubs</option>
-                <option value="evolution-academy">Evolution Academy</option>
-                <option value="evolution-futsal-club">Evolution Futsal Club</option>
-            </select>
-        </div>
-    </form>
+    <div>
+        {% if user.is_superuser %}
+        <form action="." method="POST">
+            {% csrf_token %}
+            <div>
+                {{ form.as_p }}
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+        {% endif %}
+    </div>
+
+
 
 {% endblock %}

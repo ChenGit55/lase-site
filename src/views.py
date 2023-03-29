@@ -19,7 +19,7 @@ def aboutus_view(request):
 
     return render(request, 'about-us.html', context={})
 
-def login_view(request): 
+def login_view(request):
     if request.method == "POST":
         username = request.POST.get('username') # get login username
         password = request.POST.get('password') # get login password
@@ -27,18 +27,18 @@ def login_view(request):
         if user is None:
             context = {'error': 'Invalid username or password!'}
             return render(request, 'login.html', context)
-        login(request, user)        
+        login(request, user)
         return redirect('/logout', {})
-    
-    return render(request, 'login.html', {}) 
+
+    return render(request, 'login.html', {})
 
 def logout_view(request):
-    if request.method == "POST":    
+    if request.method == "POST":
         logout(request)
         redirect('/login')
-    return render(request, 'logout.html', {}) 
+    return render(request, 'logout.html', {})
 
 
-def register_view(request): 
+def register_view(request):
 
-    return render(request, 'register.html', context={}) 
+    return render(request, 'register.html', context={})

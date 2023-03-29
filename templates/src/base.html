@@ -24,12 +24,9 @@
         <nav class="login">
                 <ul>
                     {% if user.is_authenticated %}
-
-                    {% if user.is_superuser %}
                         <li>
                             <a href="{% url 'students' %}"> Students |</a>
                         </li>
-                    {% endif %}
                         <li>
                             <a href="/">{{ user.username }}</a>
                         </li>

@@ -19,6 +19,10 @@ def aboutus_view(request):
 
     return render(request, 'about-us.html', context={})
 
+def test_view(request):
+
+    return render(request, 'tests.html', context={})
+
 def login_view(request):
     if request.method == "POST":
         username = request.POST.get('username') # get login username

@@ -22,6 +22,7 @@ from .views import (
     home_view,
     login_view,
     logout_view,
+    test_view
 )
 
 urlpatterns = [
@@ -30,5 +31,6 @@ urlpatterns = [
     path('students/', include('students.urls')),
     path('login/', login_view, name='login'),
     path('logout/', logout_view, name='logout'),
+    path('tests', test_view, name='tests'),
     path('admin/', admin.site.urls),
 ]

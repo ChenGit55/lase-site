@@ -1,10 +1,12 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
-    {% load static %}
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,75 +15,88 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'src/css/base.css'%}">
-    {% block styles %}
-    {% endblock %}
-    <title>Site</title>
-
+    <title>Test</title>
 </head>
-<body >
-    <div class="bgpapper">
-        <object id="logo" type="image/svg+xml" data="{% static 'src/img/lase-logo.svg' %}"></object>
-        <nav class="login">
-                <ul>
-                    {% if user.is_authenticated %}
-                        <li>
-                            <a href="{% url 'students' %}"> Students |</a>
-                        </li>
-                        <li>
-                            <a href="/">{{ user.username }}</a>
-                        </li>
-                        <li>
-                            <a href="{% url 'logout' %}">Logout</a>
-                        </li>
-                    {% else %}
-                        <li>
-                            <a href="{% url 'login' %}">Login</a>
-                        </li>
-                    {% endif %}
-                </ul>
-        </nav>
-        <nav>
-            <ul>
-                <li>
-                    <a href="{% url 'home' %}">Home</a>
-                </li>
-                <li>
-                    <a href="{% url 'programs' %}">Programs</a>
-                </li>
-                <li>
-                    <a href="{% url 'lion-cubs' %}">Lion Cubs</a>
-                </li>
-                <li>
-                    <a href="{% url 'evolution-academy' %}" >Evolution Academy</a>
-                </li>
-                <li>
-                    <a href="{% url 'evolution-futsal-club' %}">Evolution Futsal Club</a>
-                </li>
-                <li>
-                    <a href="{% url 'private-training' %}">Private Training</a>
-                </li>
-                <li>
-                    <a href="{% url 'schools' %}">Schools</a>
-                </li>
-                <li>
-                    <a href="{% url 'enroll' %}"> Enroll </a>
-                </li>
-            </ul>
-        </nav>
-        <header>
-            <h1>
-                {% block title %}{% endblock title %}
-            </h1>
-        </header>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                            <header>
+                                <object id="logo" type="image/svg+xml" data="{% static 'src/img/lase-logo.svg' %}"></object>
+                                <nav class="navbar navbar-expand-lg navbar-dark" style="height: 25px;">
+                                    <div class="container-fluid">
+                                        <ul class="navbar-nav ms-auto">
+                                            {% if user.is_authenticated %}
+                                                <li>
+                                                    <a class="nav-link " href="{% url 'students' %}">Students |</a>
+                                                </li>
+                                                <li>
+                                                    <a class="nav-link" href="/">{{ user.username }}</a>
+                                                </li>
+                                                <li>
+                                                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                                                </li>
+                                            {% else %}
+                                                <li>
+                                                    <a class="nav-link" href="{% url 'login' %}">Login</a>
+                                                </li>
+                                            {% endif %}
+                                    </div>
+                                </nav>
+                            <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Eighth navbar example">
+                                <div class="container">
+                                    <a class="navbar-brand" href="{% url 'home' %}">LASE</a>
+                                    <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
+                                        <span class="navbar-toggler-icon"></span>
+                                    </button>
 
-        <p>
-        {% block content %}
-            nada aqui
-        {% endblock content %}
-        </p>
+                                    <div class="navbar-collapse collapse" id="navbarsExample07" >
+                                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Programs</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" href="{% url 'lion-cubs' %}">Lion Cubs</a></li>
+                                                <li><a class="dropdown-item" href="{% url 'evolution-academy' %}">Evolution Academy</a></li>
+                                                <li><a class="dropdown-item" href="{% url 'evolution-futsal-club' %}">Evolution Futsal Club</a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{% url 'private-training' %}">Private Training</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{% url 'schools' %}">Schools</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{% url 'enroll' %}"> Enroll </a>
+                                        </li>
+
+                                        </ul>
+                                        <form role="search">
+                                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                                        </form>
+                                    </div>
+                                </div>
+                            </nav>
+                            </header>
+                <div class="bgpapper">
+                            <h1>
+                                {% block title %}{% endblock title %}
+                            </h1>
+
+
+                            <p>
+                            {% block content %}
+                                nada aqui
+                            {% endblock content %}
+
+                        </p>
+                </div>
+            </div>
+        </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-5Y5g5PeFWQTIc5r5f+WTZ/kQUbhkGVNHsbzo+BFQmcQjz9XGqa/xXaMDb1EHzJnF" crossorigin="anonymous"></script>
 
 </body>
 </html>

@@ -3,3 +3,5 @@
 __pycache__/
 db.sqlite3
 **/migrations/
+tests.css
+tests.html

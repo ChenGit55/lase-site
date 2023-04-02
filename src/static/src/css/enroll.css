@@ -1,0 +1,9 @@
+
+input[type="date"] {
+    color: #062957;
+    width: 150px;
+  }
+
+select {
+    width: 150px;
+}

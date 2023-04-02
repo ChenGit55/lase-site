@@ -1,13 +1,52 @@
 {% extends 'base.html' %}
+{% load static %}
+{% block linkcss %}<link rel="stylesheet" href="{% static 'src/css/enroll.css'%}">{% endblock linkcss %}
 {% block title %}Enroll{% endblock title %}
 {% block content %}
-    <div>
-        <form action="." method="POST">
-            {% csrf_token %}
-            <div>
-                {{ form.as_p }}
-            </div>
-            <button type="submit">Register</button>
-        </form>
-    </div>    
+    <div class="container">
+        <div>
+            <form action="." method="POST">
+                {% csrf_token %}
+                <div class="container">
+                    Student Information
+                    <hr>
+                    <div class="row justify-content-center">
+                        <div class="form-group col-md-5">
+                            {{ form.student_fname.label_tag}}
+                            {{ form.student_fname }}
+                        </div>
+                        <div class="col-md-5">
+                            {{ form.student_lname.label_tag}}
+                            {{ form.student_lname }}
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-md-2">
+                            {{ form.birth_date.label_tag}}
+                            {{ form.birth_date }}
+                        </div>
+                        <div class="col-md-1">
+                            {{ form.gender.label_tag}}
+                            {{ form.gender }}
+                        </div>
+
+                        <div class="col-md-7">
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-md-10">
+                            {{ form.additional_info.label_tag}}
+                            {{ form.additional_info }}
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button type="submit" class="btn btn-primary">Enroll</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
 {% endblock %}

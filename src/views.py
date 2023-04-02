@@ -21,7 +21,10 @@ def aboutus_view(request):
 
 def test_view(request):
 
-    return render(request, 'tests.html', context={})
+    context = {
+    }
+
+    return render(request, 'tests.html', context= context)
 
 def login_view(request):
     if request.method == "POST":

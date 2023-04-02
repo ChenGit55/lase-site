@@ -16,7 +16,8 @@
     {% bootstrap_css %}
     {% bootstrap_javascript %}
     <link rel="stylesheet" href="{% static 'src/css/base.css'%}">
-    <title>Test</title>
+    {% block linkcss %}{% endblock linkcss %}
+    <title> {% block title %}{% endblock title %}</title>
 </head>
 <body>
     <div class="container">
@@ -82,7 +83,7 @@
                             </header>
                 <div class="bgpapper">
                             <h1>
-                                {% block title %}{% endblock title %}
+                                {% block page_title %}{% endblock page_title %}
                             </h1>
 
 

@@ -7,52 +7,51 @@
 
 
     <div class="container d-flex justify-content-center align-items-center">
-                <form action="." method="POST">
-                    {% csrf_token %}
-                                Student Information
-                                <hr>
-                                <div class="px-4">
-                                        <div class="row">
-                                            <div class="col-auto">
-                                                <div class="form-group">
-                                                    {{ form.student_fname.label_tag }}
-                                                    {{ form.student_fname }}
-                                                </div>
-                                            </div>
-                                            <div class="col-auto">
-                                                {{ form.student_lname.label_tag }}
-                                                {{ form.student_lname }}
-                                            </div>
-                                        </div>
-                                    <div class="row">
-                                        <div class="col-auto">
-                                            {{ form.birth_date.label_tag }}
-                                            {{ form.birth_date }}
-                                        </div>
-                                        <div class="col-auto">
-                                            {{ form.gender.label_tag }}
-                                            {{ form.gender }}
-                                        </div>
-                                        <div class="col-auto">
-                                            {{ form.program.label_tag }}
-                                            {{ form.program }}
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-12">
-                                            {{ form.additional_info.label_tag }}
-                                            {{ form.additional_info }}
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="d-grid gap-2 col-11 mx-auto">
-                                    <button type="submit" class="btn btn-primary">Enroll</button>
-                                </div>
+        <form action="." method="POST">
+            {% csrf_token %}
+            Student Information
+            <hr>
+            <div class="px-4">
+                <div class="row">
+                    <div class="col-auto">
+                        <div class="form-group">
+                            {{ form.student_fname.label }}
+                            {{ form.student_fname }}
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        {{ form.student_lname.label }}
+                        {{ form.student_lname }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-auto">
+                        {{ form.birth_date.label }}
+                        {{ form.birth_date }}
+                    </div>
+                    <div class="col-auto">
+                        {{ form.gender.label }}
+                        {{ form.gender }}
+                    </div>
+                    <div class="col-auto">
+                        {{ form.program.label }}
+                        {{ form.program }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        {{ form.additional_info.label }}
+                        {{ form.additional_info }}
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="d-grid gap-2 col-11 mx-auto">
+                <button type="submit" class="btn btn-primary">Enroll</button>
+            </div>
 
-                </form>
+        </form>
     </div>
-
 
 
 

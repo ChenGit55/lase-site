@@ -20,83 +20,82 @@
     <title> {% block title %}{% endblock title %}</title>
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm">
-                            <header>
-                                <object id="logo" type="image/svg+xml" data="{% static 'src/img/lase-logo.svg' %}"></object>
-                                <nav class="navbar navbar-expand-lg navbar-dark" style="height: 25px;">
-                                    <div class="container-fluid">
-                                        <ul class="navbar-nav ms-auto">
-                                            {% if user.is_authenticated %}
-                                                <li>
-                                                    <a class="nav-link " href="{% url 'students' %}">Students |</a>
-                                                </li>
-                                                <li>
-                                                    <a class="nav-link" href="/">{{ user.username }}</a>
-                                                </li>
-                                                <li>
-                                                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
-                                                </li>
-                                            {% else %}
-                                                <li>
-                                                    <a class="nav-link" href="{% url 'login' %}">Login</a>
-                                                </li>
-                                            {% endif %}
-                                    </div>
-                                </nav>
-                            <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Eighth navbar example">
-                                <div class="container">
-                                    <a class="navbar-brand" href="{% url 'home' %}">LASE</a>
-                                    <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
-                                        <span class="navbar-toggler-icon"></span>
-                                    </button>
+    <header>
+        <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-auto">
+                <object id="logo" class="d-none d-md-block" type="image/svg+xml" data="{% static 'src/img/lase-logo.svg' %}"></object>
+              </div>
+            </div>
+          </div>
+        <nav class="navbar navbar-expand" style="height: 25px;">
+            <div class="container-fluid">
+                <ul class="navbar-nav ms-auto" id="navline">
+                    {% if user.is_authenticated %}
+                        <li>
+                            <a class="nav-link " href="{% url 'students' %}">Students |</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="/">{{ user.username }}</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                        </li>
+                    {% else %}
+                        <li>
+                            <a class="nav-link" href="{% url 'login' %}">Login</a>
+                        </li>
+                    {% endif %}
+            </div>
+        </nav>
+        <nav class="navbar navbar-expand-lg navbar-light" aria-label="Eighth navbar example">
+            <div class="container">
+                <a class="navbar-brand" href="{% url 'home' %}">LASE</a>
+                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-                                    <div class="navbar-collapse collapse" id="navbarsExample07" >
-                                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                        <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Programs</a>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="{% url 'lion-cubs' %}">Lion Cubs</a></li>
-                                                <li><a class="dropdown-item" href="{% url 'evolution-academy' %}">Evolution Academy</a></li>
-                                                <li><a class="dropdown-item" href="{% url 'evolution-futsal-club' %}">Evolution Futsal Club</a></li>
-                                            </ul>
-                                        </li>
+                <div class="navbar-collapse collapse" id="navbarsExample07" >
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Programs</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'lion-cubs' %}">Lion Cubs</a></li>
+                            <li><a class="dropdown-item" href="{% url 'evolution-academy' %}">Evolution Academy</a></li>
+                            <li><a class="dropdown-item" href="{% url 'evolution-futsal-club' %}">Evolution Futsal Club</a></li>
+                        </ul>
+                    </li>
 
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="{% url 'private-training' %}">Private Training</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="{% url 'schools' %}">Schools</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="{% url 'enroll' %}"> Enroll </a>
-                                        </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'private-training' %}">Private Training</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'schools' %}">Schools</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'enroll' %}"> Enroll </a>
+                    </li>
 
-                                        </ul>
-                                        <form role="search">
-                                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-                                        </form>
-                                    </div>
-                                </div>
-                            </nav>
-                            </header>
-                <div class="bgpapper">
-                            <h1>
-                                {% block page_title %}{% endblock page_title %}
-                            </h1>
-
-
-                            <p>
-                            {% block content %}
-                                nada aqui
-                            {% endblock content %}
-
-                        </p>
+                    </ul>
+                    <form role="search">
+                    <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                    </form>
                 </div>
             </div>
-        </div>
+        </nav>
+
+    </header>
+    <div class="container pt-4">
+        <h1>
+            {% block page_title %}{% endblock page_title %}
+        </h1>
+
+        {% block content %}
+            nada aqui
+        {% endblock content %}
     </div>
+
+
 
 
 </body>

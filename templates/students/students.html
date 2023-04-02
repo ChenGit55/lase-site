@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block title %}Students{% endblock title %}
+{% block page_title %}Students{% endblock page_title %}
 {% block content %}
 
 <ul>
@@ -8,7 +9,7 @@
         <input type="submit" value="Search Student">
     </form>
     {% for s in qs %}
-         
+
     <li>
        <a href='{{ s.get_absolute_url }}' >  {{ s.id }} {{ s.student_fname }} {{ s.student_lname }} {{ s.gender}} </a>
     </li>

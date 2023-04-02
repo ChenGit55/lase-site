@@ -12,30 +12,32 @@
                     <hr>
                     <div class="row justify-content-center">
                         <div class="form-group col-md-5">
-                            {{ form.student_fname.label_tag}}
+                            {{ form.student_fname.label_tag }}
                             {{ form.student_fname }}
                         </div>
                         <div class="col-md-5">
-                            {{ form.student_lname.label_tag}}
+                            {{ form.student_lname.label_tag }}
                             {{ form.student_lname }}
                         </div>
                     </div>
                     <div class="row justify-content-center">
                         <div class="col-md-2">
-                            {{ form.birth_date.label_tag}}
+                            {{ form.birth_date.label_tag }}
                             {{ form.birth_date }}
                         </div>
                         <div class="col-md-1">
-                            {{ form.gender.label_tag}}
+                            {{ form.gender.label_tag }}
                             {{ form.gender }}
                         </div>
-
-                        <div class="col-md-7">
+                        <div class="col-md-3">
+                            {{ form.program.label_tag }}
+                            {{ form.program }}
                         </div>
+                        <div class="col-md-4"></div>
                     </div>
                     <div class="row justify-content-center">
                         <div class="col-md-10">
-                            {{ form.additional_info.label_tag}}
+                            {{ form.additional_info.label_tag }}
                             {{ form.additional_info }}
                         </div>
                     </div>

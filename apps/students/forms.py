@@ -3,22 +3,22 @@ from .models import Student, Statistic
 
 class StudentForm(forms.ModelForm):
 
-    additional_info = forms.CharField(label='Addtional Info', widget=forms.Textarea(attrs={'class': 'form-control', 'style': 'height: 100px;'}))
-
 
     class Meta:
         model = Student
-        fields = ['student_fname', 'student_lname', 'birth_date', 'gender', 'additional_info']
+        fields = ['student_fname', 'student_lname', 'birth_date', 'gender', 'program', 'additional_info']
 
         labels = {
             'student_fname' : 'Name',
             'student_lname' : 'Last Name',
             'gender' : 'Gender',
             'birth_date' : 'Date of Birth',
+            'additional_info' : 'Addtional Info',
         }
 
         widgets = {
-            "birth_date": forms.DateInput(attrs={'type': 'date'})
+            "birth_date": forms.DateInput(attrs={'type': 'date'}),
+            "additional_info" : forms.Textarea(attrs={'class': 'form-control', 'style': 'height: 100px;'}),
         }
 
     def clean(self):

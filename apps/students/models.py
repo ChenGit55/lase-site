@@ -21,15 +21,15 @@ class Student(models.Model):
 
     #creating gender options
     GENDER_CHOICES =[
-        ('B', 'Boy'),
-        ("G", 'Girl'),
+        ('Boy', 'Boy'),
+        ("Girl", 'Girl'),
     ]
 
     #creating a programs options
     PROGRAMS_CHOICES =[
-        ('lion cubs', 'Lion Cubs'),
-        ('evolution academy', 'Evolution Academy'),
-        ('evolution fusal club', 'Evolution Futsal Club'),
+        ('Lion Cubs', 'Lion Cubs'),
+        ('Evolution Academy', 'Evolution Academy'),
+        ('Evolution Fusal Club', 'Evolution Futsal Club'),
     ]
 
     #phone validator
@@ -46,7 +46,7 @@ class Student(models.Model):
     student_fname = models.CharField(max_length=50)
     student_lname = models.CharField(max_length=100)
     birth_date = models.DateField(max_length=8, default=today, null=True, blank=True)
-    gender = models.CharField(max_length=1, choices=GENDER_CHOICES, null=True, blank=True)
+    gender = models.CharField(max_length=4, choices=GENDER_CHOICES, null=True, blank=True)
     additional_info = models.TextField(max_length=1000, null=True, blank=True)
 
     #address info

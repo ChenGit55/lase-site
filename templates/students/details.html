@@ -1,20 +1,67 @@
 {% extends 'base.html' %}
 {% block title %}Details{% endblock title %}
 {% block content %}
-    {{ sd.student_fname }} {{ sd.student_lname}} {{ sd.birth_date }} {{ sd.gender}}
-    <div>
-         {{ stats.strength }}
-    </div>
 
     <div>
         {% if user.is_superuser %}
-        <form action="." method="POST">
-            {% csrf_token %}
-            <div>
-                {{ form.as_p }}
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    Full Name:
+                    {{ sd.student_fname }} {{ sd.student_lname}}
+
+                </div>
             </div>
-            <button type="submit">Submit</button>
-        </form>
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    Age:
+                    {{ age }}
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    Gender:
+                    {{ sd.gender }}
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    Program:
+                    {{ sd.program }}
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    Strength:
+                    {{ stats.strength }}
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    Speed:
+                    {{ stats.speed }}
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    Agility:
+                    {{ stats.agility }}
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    Stamina:
+                    {{ stats.stamina }}
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    Physical:
+                    {{ stats.physical }}
+                </div>
+            </div>
+        </div>
+
         {% endif %}
     </div>
 

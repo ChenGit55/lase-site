@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect
 from .models import Student, Statistic
 from .forms import StudentForm, StatisticForm
 from .utils import superuser_required
+from datetime import date
 
 # Create your views here.
 
@@ -49,6 +50,7 @@ def student_create_view(request):
 def student_detail_view(request, slug=None):
     form = StatisticForm(request.POST or None)
 
+
     if slug is not None:
         try:
             student_detail = Student.objects.get(slug=slug) #get slug if it is not empyt
@@ -58,10 +60,12 @@ def student_detail_view(request, slug=None):
             raise Http404
         except:
             raise Http404
+    age = (date.today() - student_detail.birth_date).days // 365
     statistic = Statistic.objects.get()
     context = {
         'sd': student_detail,
         'stats': statistic,
         'form': form,
+        'age' : age,
     }
     return render(request, 'details.html', context=context)

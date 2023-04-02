@@ -2,53 +2,59 @@
 {% load static %}
 {% block linkcss %}<link rel="stylesheet" href="{% static 'src/css/enroll.css'%}">{% endblock linkcss %}
 {% block title %}Enroll{% endblock title %}
+{% block page_title %}Enroll{% endblock page_title %}
 {% block content %}
-    <div class="container">
-        <div>
-            <form action="." method="POST">
-                {% csrf_token %}
-                <div class="container">
-                    Student Information
-                    <hr>
-                    <div class="row justify-content-center">
-                        <div class="form-group col-md-5">
-                            {{ form.student_fname.label_tag }}
-                            {{ form.student_fname }}
-                        </div>
-                        <div class="col-md-5">
-                            {{ form.student_lname.label_tag }}
-                            {{ form.student_lname }}
-                        </div>
-                    </div>
-                    <div class="row justify-content-center">
-                        <div class="col-md-2">
-                            {{ form.birth_date.label_tag }}
-                            {{ form.birth_date }}
-                        </div>
-                        <div class="col-md-1">
-                            {{ form.gender.label_tag }}
-                            {{ form.gender }}
-                        </div>
-                        <div class="col-md-3">
-                            {{ form.program.label_tag }}
-                            {{ form.program }}
-                        </div>
-                        <div class="col-md-4"></div>
-                    </div>
-                    <div class="row justify-content-center">
-                        <div class="col-md-10">
-                            {{ form.additional_info.label_tag }}
-                            {{ form.additional_info }}
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="d-grid gap-2 col-6 mx-auto">
-                        <button type="submit" class="btn btn-primary">Enroll</button>
-                    </div>
-                </div>
-            </form>
-        </div>
+
+
+    <div class="container d-flex justify-content-center align-items-center">
+                <form action="." method="POST">
+                    {% csrf_token %}
+                                Student Information
+                                <hr>
+                                <div class="px-4">
+                                        <div class="row">
+                                            <div class="col-auto">
+                                                <div class="form-group">
+                                                    {{ form.student_fname.label_tag }}
+                                                    {{ form.student_fname }}
+                                                </div>
+                                            </div>
+                                            <div class="col-auto">
+                                                {{ form.student_lname.label_tag }}
+                                                {{ form.student_lname }}
+                                            </div>
+                                        </div>
+                                    <div class="row">
+                                        <div class="col-auto">
+                                            {{ form.birth_date.label_tag }}
+                                            {{ form.birth_date }}
+                                        </div>
+                                        <div class="col-auto">
+                                            {{ form.gender.label_tag }}
+                                            {{ form.gender }}
+                                        </div>
+                                        <div class="col-auto">
+                                            {{ form.program.label_tag }}
+                                            {{ form.program }}
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            {{ form.additional_info.label_tag }}
+                                            {{ form.additional_info }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="d-grid gap-2 col-11 mx-auto">
+                                    <button type="submit" class="btn btn-primary">Enroll</button>
+                                </div>
+
+                </form>
     </div>
+
+
+
 
 
 {% endblock %}

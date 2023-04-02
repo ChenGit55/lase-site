@@ -154,16 +154,5 @@ class Statistic(models.Model):
     stamina = models.IntegerField()
     physical = models.IntegerField()
 
-
-    # def save(self, *args, **kwargs):
-    #     student_stats = Student.objects.get
-    #     student_exist = Statistic.objects.filter(student=self.student).first()
-    #     if student_exist:
-    #         student_exist.strength = self.strength
-    #         student_exist.speed = self.speed
-    #         student_exist.agility = self.agility
-    #         student_exist.stamina = self.stamina
-    #         student_exist.physical = self.physical
-    #         student_exist.save()
-    #     else:
-    #         super(Statistic, self).save(*args, **kwargs)
+    class Meta:
+        unique_together = [['student']]

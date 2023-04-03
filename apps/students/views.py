@@ -5,6 +5,7 @@ from .models import Student, Statistic
 from .forms import StudentForm, StatisticForm
 from .utils import superuser_required
 from datetime import date
+from django.contrib import messages
 
 # Create your views here.
 
@@ -22,15 +23,14 @@ def student_search_view(request):
     return render(request, 'student-search.html', context )
 
 @superuser_required
-def student_view(request):
+def student_view(request, slug=None):
 
     students_qs = Student.objects.all() #get a querry set from Student class
-
     students_list = students_qs
 
     context = {
         'qs' : students_qs,
-        'students': students_list,
+        'students' : students_list,
     }
     return render(request, 'students.html', context= context)
 
@@ -42,15 +42,14 @@ def student_create_view(request):
     if form.is_valid():
         student = form.save()
         context['form'] = StudentForm() #reinitializing form
-        return redirect(student.get_absolute_url())
+        messages.success(request, 'Student enrolled successfully!')
+        return render(request, 'enroll_success.html', context)
 
     return render(request, 'enroll.html', context=context)
 
 
 def student_detail_view(request, slug=None):
     form = StatisticForm(request.POST or None)
-
-
     if slug is not None:
         try:
             student_detail = Student.objects.get(slug=slug) #get slug if it is not empyt
@@ -60,12 +59,11 @@ def student_detail_view(request, slug=None):
             raise Http404
         except:
             raise Http404
-    age = (date.today() - student_detail.birth_date).days // 365
-    statistic = Statistic.objects.get()
+
+    statistic = Statistic(student_detail)
     context = {
         'sd': student_detail,
         'stats': statistic,
         'form': form,
-        'age' : age,
     }
     return render(request, 'details.html', context=context)

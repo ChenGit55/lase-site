@@ -1,11 +1,9 @@
 from django.db import models
-
-# Create your models here.
-from django.db import models
 from django.urls import reverse
 from django.db.models.signals import pre_save, post_save
 from django.core.validators import RegexValidator
 from django.utils import timezone
+from datetime import date
 from .utils import slugify_instances
 
 now = timezone.now()
@@ -17,6 +15,10 @@ class Student(models.Model):
 
     def get_absolute_url(self):
         return reverse('details', kwargs={"slug" : self.slug}) #return a detail url with the right slug
+
+    def age_calc(self):
+        age = (date.today() - self.birth_date).days // 365
+        return age #calc and retur the age
 
 
     #creating gender options
@@ -135,11 +137,13 @@ def student_pre_save(sender, instance,*args, **kwargs):
     if instance.slug is None:
         slugify_instances(instance, save=False)
 
+
 pre_save.connect(student_pre_save, sender=Student)
 
 def student_post_save(sender, instance, created,*args,**kwargs):
     if created:
         slugify_instances(instance, save=True)
+        Statistic.objects.create(student=instance)
 
 post_save.connect(student_post_save, sender=Student)
 
@@ -147,12 +151,12 @@ post_save.connect(student_post_save, sender=Student)
 
 class Statistic(models.Model):
 
-    student = models.ForeignKey(Student, on_delete=models.CASCADE)
-    strength = models.IntegerField()
-    speed = models.IntegerField()
-    agility = models.IntegerField()
-    stamina = models.IntegerField()
-    physical = models.IntegerField()
+    student = models.ForeignKey(Student, on_delete=models.CASCADE, null=True, blank=True)
+    strength = models.IntegerField(null=True, blank=True)
+    speed = models.IntegerField(null=True, blank=True)
+    agility = models.IntegerField(null=True, blank=True)
+    stamina = models.IntegerField(null=True, blank=True)
+    physical = models.IntegerField(null=True, blank=True)
 
     class Meta:
         unique_together = [['student']]

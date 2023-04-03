@@ -47,6 +47,10 @@ def student_create_view(request):
 
     return render(request, 'enroll.html', context=context)
 
+def enroll_success_view(request):
+
+    context = {}
+    return render(request, 'enroll-sucess.html', context=context)
 
 def student_detail_view(request, slug=None):
     form = StatisticForm(request.POST or None)

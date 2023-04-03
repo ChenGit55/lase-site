@@ -43,7 +43,7 @@ def student_create_view(request):
         student = form.save()
         context['form'] = StudentForm() #reinitializing form
         messages.success(request, 'Student enrolled successfully!')
-        return render(request, 'enroll_success.html', context)
+        return render(request, 'enroll-success.html', context)
 
     return render(request, 'enroll.html', context=context)
 

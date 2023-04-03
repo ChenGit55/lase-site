@@ -11,6 +11,6 @@ urlpatterns = [
     path('', student_view, name= 'students'),
     path('details/<slug:slug>', student_detail_view, name='details'),
     path('enroll/', student_create_view, name='enroll'),
-    path('enroll-success', enroll_success_view, name='enroll-success.html'),
+    path('enroll-success/', enroll_success_view, name='enroll-success'),
     path("search/", student_search_view, name="student-search"),
 ]

@@ -43,14 +43,14 @@ def student_create_view(request):
         student = form.save()
         context['form'] = StudentForm() #reinitializing form
         messages.success(request, 'Student enrolled successfully!')
-        return render(request, 'enroll-success.html', context)
+        return redirect('enroll-success')
 
     return render(request, 'enroll.html', context=context)
 
 def enroll_success_view(request):
 
-    context = {}
-    return render(request, 'enroll-sucess.html', context=context)
+    return render(request, 'enroll-success.html', {})
+
 
 def student_detail_view(request, slug=None):
     form = StatisticForm(request.POST or None)

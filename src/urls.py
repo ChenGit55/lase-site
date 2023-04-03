@@ -20,7 +20,7 @@ from django.contrib import admin
 from django.urls import path, include
 from .views import (
     home_view,
-    login_view,
+    sign_in_view,
     logout_view,
     test_view
 )
@@ -29,7 +29,7 @@ urlpatterns = [
     path('', home_view, name='home'),
     path('programs/', include('programs.urls')),
     path('students/', include('students.urls')),
-    path('login/', login_view, name='login'),
+    path('sign-in/', sign_in_view, name='sign-in'),
     path('logout/', logout_view, name='logout'),
     path('tests', test_view, name='tests'),
     path('admin/', admin.site.urls),

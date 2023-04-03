@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}Sign in{% endblock title %}
+
+{% block page_title %}Sign In{% endblock page_title %}
+{% block content %}
+
+<div class="container d-flex justify-content-center align-items-center ">
+    {% if not request.user.is_authenticated %}
+        <form action='' method='POST' class="w-25"> {% csrf_token %}
+            {% if error %}
+                <p style='color:red'>{{error}}</p>
+            {% endif %}
+            <div class="form-floating">
+                <input type="text" class="form-control" id="floatingInput" placeholder="Username" name="username">
+                <label for="floatingInput" class="text-dark">Username</label>
+            </div>
+            <div class="form-floating">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
+                <label for="floatingPassword" class="text-dark">Password</label>
+            </div>
+            <div class="checkbox mb-3">
+                <label>
+                <input type="checkbox" value="remember-me"> Remember me
+                </label>
+            </div>
+            <div>
+                <button class="w-100 btn btn-lg btn-primary" type="submit" name='sign-in'>Sign in</button>
+            </div>
+        </form>
+    {% else %}
+        <p> You're alredy logged in. Would you like to <a href="/sign-in/">logout?</a></p>
+    {% endif %}
+</div>
+
+
+
+
+
+
+
+
+
+
+</body>
+
+{% endblock %}

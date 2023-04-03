@@ -26,23 +26,23 @@ def test_view(request):
 
     return render(request, 'tests.html', context= context)
 
-def login_view(request):
+def sign_in_view(request):
     if request.method == "POST":
         username = request.POST.get('username') # get login username
         password = request.POST.get('password') # get login password
         user = authenticate(request, username=username, password=password) # authenticate user
         if user is None:
             context = {'error': 'Invalid username or password!'}
-            return render(request, 'login.html', context)
+            return render(request, 'sign-in.html', context)
         login(request, user)
         return redirect('/logout', {})
 
-    return render(request, 'login.html', {})
+    return render(request, 'sign-in.html', {})
 
 def logout_view(request):
     if request.method == "POST":
         logout(request)
-        redirect('/login')
+        redirect('/sign-in')
     return render(request, 'logout.html', {})
 
 

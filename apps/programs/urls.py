@@ -1,5 +1,4 @@
 from django.urls import path
-
 from .views import (
     programs_view,
     evolution_academy_view,

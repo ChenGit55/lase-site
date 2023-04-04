@@ -1,9 +1,7 @@
 {% extends 'base.html' %}
 {% block title %}Sign in{% endblock title %}
-
 {% block page_title %}Sign In{% endblock page_title %}
 {% block content %}
-
 <div class="container d-flex justify-content-center align-items-center ">
     {% if not request.user.is_authenticated %}
         <form action='' method='POST'> {% csrf_token %}
@@ -45,16 +43,4 @@
         <p> You're alredy logged in. Would you like to <a href="/sign-in/">logout?</a></p>
     {% endif %}
 </div>
-
-
-
-
-
-
-
-
-
-
-</body>
-
 {% endblock %}

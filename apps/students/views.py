@@ -1,33 +1,25 @@
 from django.http import Http404
-from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from .models import Student, Statistic
 from .forms import StudentForm, StatisticForm
 from .utils import superuser_required
-from datetime import date
 from django.contrib import messages
-
-# Create your views here.
 
 def student_search_view(request):
     query = request.GET.get("q") #get the input text by the name
     student_detail = None
     if query is not None:
         student_detail = Student.objects.filter(slug__icontains= query)
-
     context = {
         'student' : student_detail,
         'qerry' : query
     }
-
     return render(request, 'student-search.html', context )
 
 @superuser_required
 def student_view(request, slug=None):
-
     students_qs = Student.objects.all() #get a querry set from Student class
     students_list = students_qs
-
     context = {
         'qs' : students_qs,
         'students' : students_list,
@@ -44,13 +36,10 @@ def student_create_view(request):
         context['form'] = StudentForm() #reinitializing form
         messages.success(request, 'Student enrolled successfully!')
         return redirect('enroll-success')
-
     return render(request, 'enroll.html', context=context)
 
 def enroll_success_view(request):
-
     return render(request, 'enroll-success.html', {})
-
 
 def student_detail_view(request, slug=None):
     form = StatisticForm(request.POST or None)
@@ -63,7 +52,6 @@ def student_detail_view(request, slug=None):
             raise Http404
         except:
             raise Http404
-
     statistic = Statistic(student_detail)
     context = {
         'sd': student_detail,

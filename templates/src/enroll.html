@@ -4,8 +4,6 @@
 {% block title %}Enroll{% endblock title %}
 {% block page_title %}Enroll{% endblock page_title %}
 {% block content %}
-
-
     <div class="container d-flex justify-content-center align-items-center">
         <form action="." method="POST">
             {% csrf_token %}
@@ -49,10 +47,6 @@
             <div class="d-grid gap-2 col-11 mx-auto">
                 <button type="submit" class="btn btn-primary">Enroll</button>
             </div>
-
         </form>
     </div>
-
-
-
 {% endblock %}

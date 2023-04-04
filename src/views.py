@@ -1,30 +1,17 @@
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
 
-
-
 def home_view(request):
-
     return render(request, 'home.html', context={})
 
 def camps_view(request):
-
     return render(request, 'camps.html', context={})
 
 def tournaments_view(request):
-
     return render(request, 'tournaments.html', context={})
 
 def aboutus_view(request):
-
     return render(request, 'about-us.html', context={})
-
-def test_view(request):
-
-    context = {
-    }
-
-    return render(request, 'tests.html', context= context)
 
 def sign_in_view(request):
     if request.method == "POST":
@@ -36,7 +23,6 @@ def sign_in_view(request):
             return render(request, 'sign-in.html', context)
         login(request, user)
         return redirect('/logout', {})
-
     return render(request, 'sign-in.html', {})
 
 def logout_view(request):
@@ -45,7 +31,5 @@ def logout_view(request):
         redirect('/sign-in')
     return render(request, 'logout.html', {})
 
-
 def register_view(request):
-
     return render(request, 'register.html', context={})

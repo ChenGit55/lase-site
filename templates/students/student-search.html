@@ -2,7 +2,6 @@
 {% block title %}Search{% endblock title %}
 {% block page_title %}Student Search{% endblock page_title %}
 {% block content %}
-
 {% if student and querry is not NULL %}
     <ul>
         {% for s in student %}
@@ -12,7 +11,4 @@
 {% else %}
     Student does not exist!
 {% endif %}
-
-
-
 {% endblock %}

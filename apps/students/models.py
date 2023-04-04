@@ -9,17 +9,19 @@ from .utils import slugify_instances
 now = timezone.now()
 today = now.strftime("%Y-%m-%d")
 
-
-
 class Student(models.Model):
 
+    #return a detail url with the right slug
     def get_absolute_url(self):
-        return reverse('details', kwargs={"slug" : self.slug}) #return a detail url with the right slug
+        return reverse('details', kwargs={"slug" : self.slug})
 
+    #calc and retur the age
     def age_calc(self):
         age = (date.today() - self.birth_date).days // 365
-        return age #calc and retur the age
+        return age
 
+    def __str__(self):
+        return f'{self.id} {self.student_fname} {self.student_lname}'
 
     #creating gender options
     GENDER_CHOICES =[
@@ -40,15 +42,14 @@ class Student(models.Model):
         message="'(999) 999-9999'."
     )
 
+    #studnet info
     slug = models.SlugField(unique=True, max_length=50, blank=True, null=True)
 
-    program = models.CharField(max_length=50, choices=PROGRAMS_CHOICES, null=True, blank=True)
-
-    #studnet info
     student_fname = models.CharField(max_length=50)
     student_lname = models.CharField(max_length=100)
     birth_date = models.DateField(max_length=8, default=today, null=True, blank=True)
     gender = models.CharField(max_length=4, choices=GENDER_CHOICES, null=True, blank=True)
+    program = models.CharField(max_length=50, choices=PROGRAMS_CHOICES, null=True, blank=True)
     additional_info = models.TextField(max_length=1000, null=True, blank=True)
 
     #address info
@@ -126,17 +127,9 @@ class Student(models.Model):
     filled_out_fname = models.CharField(max_length=50, null=True, blank=True)
     filled_out_lname = models.CharField(max_length=50, null=True, blank=True)
 
-    def __str__(self):
-        return f'{self.id} {self.student_fname} {self.student_lname}'
-
-
-
-
-
 def student_pre_save(sender, instance,*args, **kwargs):
     if instance.slug is None:
         slugify_instances(instance, save=False)
-
 
 pre_save.connect(student_pre_save, sender=Student)
 
@@ -147,10 +140,7 @@ def student_post_save(sender, instance, created,*args,**kwargs):
 
 post_save.connect(student_post_save, sender=Student)
 
-
-
 class Statistic(models.Model):
-
     student = models.ForeignKey(Student, on_delete=models.CASCADE, null=True, blank=True)
     strength = models.IntegerField(null=True, blank=True)
     speed = models.IntegerField(null=True, blank=True)

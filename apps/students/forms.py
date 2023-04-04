@@ -3,7 +3,6 @@ from .models import Student, Statistic
 
 class StudentForm(forms.ModelForm):
 
-
     class Meta:
         model = Student
         fields = ['student_fname', 'student_lname', 'birth_date', 'gender', 'program', 'additional_info']
@@ -25,23 +24,13 @@ class StudentForm(forms.ModelForm):
         data = self.cleaned_data
         return data
 
-
     def __init__(self, *args, **kwargs):
         super(StudentForm, self).__init__(*args, **kwargs)
 
         for field in self.fields.values():
             field.widget.attrs.update({'class': 'form-control'})
 
-    def as_bootstrap(self):
-        return self._html_output(
-            normal_row='<div class="row"><div class="col">{{label}} {{field}}</div></div>',
-            error_row='%s',
-            row_ender='</div>',
-            help_text_html=' <span class="helptext">%s</span>',
-            errors_on_separate_row=True,
-        )
-
 class StatisticForm(forms.ModelForm):
     class Meta:
         model = Statistic
-        fields =['strength', 'speed', 'agility', 'stamina', 'physical']
+        fields = ['strength', 'speed', 'agility', 'stamina', 'physical']

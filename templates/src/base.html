@@ -32,9 +32,9 @@
                 <object id="lionhead" width="40" height="40" class="rounded-circle" type="image/svg+xml" data="{% static 'src/img/user-icon.svg' %}"></object>
               </a>
               <ul class="dropdown-menu text-small">
-                <li><a class="dropdown-item " href="{% url 'students' %}">Students</a></li>
-                <li><a class="dropdown-item" href="#">Programs</a></li>
                 <li><a class="dropdown-item" href="/">{{ user.username }}</a></li>
+                <li><a class="dropdown-item " href="{% url 'students' %}">Students</a></li>
+                <li><a class="dropdown-item disabled" href="#">Programs</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
               </ul>

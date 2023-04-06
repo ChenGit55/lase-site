@@ -30,6 +30,12 @@ class StudentForm(forms.ModelForm):
         for field in self.fields.values():
             field.widget.attrs.update({'class': 'form-control'})
 
+
+class FiltroForm(forms.Form):
+    full_name = forms.CharField(required=False)
+    age = forms.CharField(required=False)
+    program = forms.CharField(required=False)
+
 class StatisticForm(forms.ModelForm):
     class Meta:
         model = Statistic

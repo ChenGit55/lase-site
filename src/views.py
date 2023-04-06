@@ -13,22 +13,22 @@ def tournaments_view(request):
 def aboutus_view(request):
     return render(request, 'about-us.html', context={})
 
-def sign_in_view(request):
+def login_view(request):
     if request.method == "POST":
         username = request.POST.get('username') # get login username
         password = request.POST.get('password') # get login password
         user = authenticate(request, username=username, password=password) # authenticate user
         if user is None:
             context = {'error': 'Invalid username or password!'}
-            return render(request, 'sign-in.html', context)
+            return render(request, 'login.html', context)
         login(request, user)
         return redirect('/logout', {})
-    return render(request, 'sign-in.html', {})
+    return render(request, 'login.html', {})
 
 def logout_view(request):
     if request.method == "POST":
         logout(request)
-        redirect('/sign-in')
+        redirect('/login')
     return render(request, 'logout.html', {})
 
 def register_view(request):

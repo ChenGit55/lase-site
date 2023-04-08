@@ -16,70 +16,9 @@
     <title> {% block title %}{% endblock title %}</title>
 </head>
 <body>
-    <header class="p-3 mb-3 border-bottom">
-        <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-auto">
-                <object id="logo" class="d-none d-md-block" type="image/svg+xml" data="{% static 'src/img/lase-logo.svg' %}"></object>
-              </div>
-            </div>
-        </div>
-        <div class="container">
-          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-end">
-            {% if user.is_authenticated %}
-            <div class="dropdown text-end">
-              <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                <object id="lionhead" width="40" height="40" class="rounded-circle" type="image/svg+xml" data="{% static 'src/img/user-icon.svg' %}"></object>
-              </a>
-              <ul class="dropdown-menu text-small">
-                <li><a class="dropdown-item" href="/">{{ user.username }}</a></li>
-                <li><a class="dropdown-item " href="{% url 'students' %}">Students</a></li>
-                <li><a class="dropdown-item disabled" href="#">Programs</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
-              </ul>
-            {% else %}
-            <li>
-                <a class="nav-link" href="{% url 'login' %}">Login</a>
-            </li>
-        {% endif %}
-            </div>
-          </div>
-        </div>
-        <nav class="navbar navbar-expand-lg navbar-light" aria-label="main navbar">
-            <div class="container">
-                <a class="navbar-brand" href="{% url 'home' %}">LASE</a>
-                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Programs</a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="{% url 'lion-cubs' %}">Lion Cubs</a></li>
-                                <li><a class="dropdown-item" href="{% url 'evolution-academy' %}">Evolution Academy</a></li>
-                                <li><a class="dropdown-item" href="{% url 'evolution-futsal-club' %}">Evolution Futsal Club</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'private-training' %}">Private Training</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'schools' %}">Schools</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'enroll' %}"> Enroll </a>
-                        </li>
-                    </ul>
-                    <form role="search">
-                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-                    </form>
-                </div>
-            </div>
-        </nav>
+    <header>
+        {% include 'header.html' %}
     </header>
-
     <div class="container">
         <h1 class="my-4">
             {% block page_title %}{% endblock page_title %}

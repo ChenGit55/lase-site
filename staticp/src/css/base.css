@@ -4,29 +4,35 @@ body {
     background-color: #062957;
 }
 
+@media (min-width: 992px) {
+    #myNav {
+      margin: 0px 150px 0px 150px;
+    }
+}
+
+#userIcon {
+    width: 40px;
+    height: 40px;
+}
+
+a{
+    color: #062957 !important;
+}
+
 h1 {
     text-align: center;
     font-weight: 700;
 }
+
 header {
     background-color: #ffffff;
 }
-
-.navbar a{
-    color: #062957;
-}
-
-.navbar-light .navbar-nav .nav-link a{
-    color: #062957;
-}
-
 
 #logo {
     width: 100px;
     height: auto;
     z-index: 1;
 }
-
 
 #text {
     text-align: center;

@@ -1,3 +1,4 @@
+
 body {
     font-family: 'Roboto', sans-serif;
     color: #ffffff;
@@ -6,17 +7,45 @@ body {
 
 @media (min-width: 992px) {
     #myNav {
-      margin: 0px 150px 0px 150px;
+      padding: 0px 150px 0px 150px;
+    }
+    header{
+        background-size: cover;
+        background-position: center bottom 40%;
+        background-image: url("../img/field.jpg");
+        background-repeat: no-repeat;
+    }
+    .navbar a{
+        color: #ffffff !important;
+    }
+    .navbar .dropdown-menu{
+        background-color: #062957;
+    }
+    .navbar a:hover{
+        color: #062957 !important;
     }
 }
 
+.carousel img {
+    object-fit: cover;
+    max-height: 500px; /* Define o tamanho máximo da altura da imagem */
+    width: auto; /* Garante que a largura da imagem seja ajustada automaticamente */
+}
+
+.btn{
+    color: #ffffff;
+    border-color: #062957;
+    background-color: #062957;
+}
+
+.btn:hover{
+    color: #062957;
+    background-color: #ffffff;
+    border-color: #ffffff;
+}
 #userIcon {
     width: 40px;
     height: 40px;
-}
-
-.navbar a{
-    color: #062957 !important;
 }
 
 h1 {
@@ -36,4 +65,5 @@ header {
 
 #text {
     text-align: center;
+    font-weight: 200;
 }

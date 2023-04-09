@@ -22,7 +22,7 @@ def login_view(request):
             context = {'error': 'Invalid username or password!'}
             return render(request, 'login.html', context)
         login(request, user)
-        return redirect('/logout', {})
+        return redirect('/students', {})
     return render(request, 'login.html', {})
 
 def logout_view(request):

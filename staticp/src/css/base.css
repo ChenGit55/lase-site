@@ -1,4 +1,3 @@
-
 body {
     font-family: 'Roboto', sans-serif;
     color: #ffffff;
@@ -9,18 +8,26 @@ body {
     #myNav {
       padding: 0px 150px 0px 150px;
     }
+
     header{
         background-size: cover;
         background-position: center bottom 40%;
         background-image: url("../img/field.jpg");
         background-repeat: no-repeat;
     }
+
     .navbar a{
         color: #ffffff !important;
     }
+
+    .nav a{
+        color: #ffffff !important;
+    }
+
     .navbar .dropdown-menu{
         background-color: #062957;
     }
+
     .navbar a:hover{
         color: #062957 !important;
     }
@@ -34,14 +41,14 @@ body {
 
 .btn{
     color: #ffffff;
-    border-color: #062957;
+    border-color: #ffffff;
     background-color: #062957;
 }
 
 .btn:hover{
     color: #062957;
+    border-color: #062957;
     background-color: #ffffff;
-    border-color: #ffffff;
 }
 #userIcon {
     width: 40px;

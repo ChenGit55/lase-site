@@ -1,0 +1,14 @@
+<form action="{% url 'payment' %}" method="post">
+
+    {% csrf_token %}
+    <script
+        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="{{ stripepb }}"
+        data-amount="999"
+        data-name="LA Soccer Evolution"
+        data-description="Descrição do produto"
+        data-image="/img/logo.png"
+        data-currency="usd"
+        data-email="{{ request.user.email }}">
+    </script>
+</form>

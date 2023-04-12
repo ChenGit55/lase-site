@@ -10,7 +10,7 @@
     {% if user.is_authenticated %}
         <img id="userIcon" src="{% static 'src/img/user-icon.svg' %}" class="dropdown-toggle rounded-circle" data-bs-toggle="dropdown" aria-expanded="false">
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <li><a class="dropdown-item" href="/">{{ user.username }}</a></li>
+            <li><a class="dropdown-item" href="{% url 'user' %}">{{ user.username }}</a></li>
             <li><a class="dropdown-item " href="{% url 'students' %}">Students</a></li>
             <li><a class="dropdown-item disabled" href="#">Programs</a></li>
             <li><hr class="dropdown-divider"></li>

@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'apps.programs',
     'apps.students',
     'apps.payments',
+    'apps.accounts',
 
     #third_part_apps
     'bootstrap5',
@@ -60,6 +61,7 @@ TEMPLATES = [
             'templates/students',
             'templates/programs',
             'templates/payments',
+            'templates/accounts',
         ],
         'APP_DIRS': True,
         'OPTIONS': {

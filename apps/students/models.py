@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 from django.urls import reverse
 from django.db.models.signals import pre_save, post_save
 from django.core.validators import RegexValidator
@@ -44,6 +45,9 @@ class Student(models.Model):
 
     #studnet info
     slug = models.SlugField(unique=True, max_length=50, blank=True, null=True)
+
+    #link with an user
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
 
     student_fname = models.CharField(max_length=50)
     student_lname = models.CharField(max_length=100)

@@ -3,7 +3,6 @@
 {% block page_title %}{{ user.first_name }} Profile{% endblock page_title %}
 {% block content %}
     <div class="container">
-        <h1>Edit user {{ form.instance.username }}</h1>
         <form method="post">
         {% csrf_token %}
         {{ form.as_p }}

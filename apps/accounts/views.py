@@ -50,7 +50,7 @@ def edit_profile_view(request, user_id):
         form = UserChangeForm(request.POST, instance=user)
         if form.is_valid():
             form.save()
-            return redirect('home')
+            return redirect(reverse_lazy(settings.LOGIN_REDIRECT_URL, args=[request.user.id]))
     else:
         form = UserChangeForm(instance=user)
     return render(request, 'edit-profile.html', {'form': form})

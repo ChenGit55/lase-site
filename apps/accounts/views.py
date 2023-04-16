@@ -4,6 +4,7 @@ from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
 from django.conf import settings
+from students.models import Student
 User = get_user_model()
 
 
@@ -39,7 +40,12 @@ def create_user_view(request):
 @login_required
 def profile_view(request, user_id):
     user = get_object_or_404(User, pk=user_id)
-    return render(request, 'profile.html', {'user': user})
+    students = Student.objects.filter(user=user)
+    context = {
+        'user': user,
+        'students': students
+    }
+    return render(request, 'profile.html', context)
 
 
 

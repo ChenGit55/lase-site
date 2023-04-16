@@ -8,6 +8,14 @@
         <p><strong>Email:</strong> {{ user.email }}</p>
         <p><strong>Date joined:</strong> {{ user.date_joined }}</p>
     </div>
+    <h3>Students</h3>
+    <ul>
+        {% for student in students %}
+            <li>{{ student.id }} {{ student.student_fname }}</li>
+        {% empty %}
+            <li>No students found.</li>
+        {% endfor %}
+    </ul>
 
     <div>
         <a class="btn btn-primary" href="{% url 'edit-profile' user.id %}" role="button">Edit</a>

@@ -1,10 +1,29 @@
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import UserCreationForm
-from django.shortcuts import render, redirect
-from django.shortcuts import render, get_object_or_404
-from django.contrib.auth import get_user_model
-
+from django.contrib.auth import get_user_model, authenticate, login, logout
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse_lazy
+from django.conf import settings
 User = get_user_model()
+
+
+def login_view(request):
+    if request.method == "POST":
+        username = request.POST.get('username') # get login username
+        password = request.POST.get('password') # get login password
+        user = authenticate(request, username=username, password=password) # authenticate user
+        if user is None:
+            context = {'error': 'Invalid username or password!'}
+            return render(request, 'login.html', context)
+        login(request, user)
+        return redirect(reverse_lazy(settings.LOGIN_REDIRECT_URL, args=[request.user.id]))
+    return render(request, 'login.html', {})
+
+def logout_view(request):
+    if request.method == "POST":
+        logout(request)
+        redirect('/login')
+    return render(request, 'logout.html', {})
 
 
 def create_user_view(request):
@@ -21,3 +40,17 @@ def create_user_view(request):
 def profile_view(request, user_id):
     user = get_object_or_404(User, pk=user_id)
     return render(request, 'profile.html', {'user': user})
+
+
+
+@login_required
+def edit_profile_view(request, user_id):
+    user = User.objects.get(pk=user_id)
+    if request.method == 'POST':
+        form = UserChangeForm(request.POST, instance=user)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = UserChangeForm(instance=user)
+    return render(request, 'edit-profile.html', {'form': form})

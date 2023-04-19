@@ -39,6 +39,7 @@ INSTALLED_APPS = [
 
     #third_part_apps
     'bootstrap5',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [

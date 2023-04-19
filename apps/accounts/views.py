@@ -17,7 +17,7 @@ def login_view(request):
             context = {'error': 'Invalid username or password!'}
             return render(request, 'login.html', context)
         login(request, user)
-        return redirect(reverse_lazy(settings.LOGIN_REDIRECT_URL, args=[request.user.id]))
+        return redirect(reverse_lazy(settings.LOGIN_REDIRECT_URL, args=[request.user.id])) #redirect to profile page, after login
     return render(request, 'login.html', {})
 
 def logout_view(request):

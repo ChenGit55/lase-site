@@ -4,6 +4,7 @@ from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
 from django.conf import settings
+from django.contrib import messages
 from students.models import Student
 User = get_user_model()
 
@@ -32,7 +33,8 @@ def create_user_view(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('home')
+            messages.success(request, 'User successfully registered!')
+            return redirect('login')
     else:
         form = UserCreationForm()
     context = {

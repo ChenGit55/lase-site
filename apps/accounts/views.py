@@ -35,7 +35,11 @@ def create_user_view(request):
             return redirect('home')
     else:
         form = UserCreationForm()
-    return render(request, 'sign-up.html', {'form': form})
+    context = {
+        'form': form,
+        'form_errors': form.errors,
+    }
+    return render(request, 'sign-up.html', context)
 
 @login_required
 def profile_view(request, user_id):

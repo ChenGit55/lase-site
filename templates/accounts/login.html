@@ -2,52 +2,48 @@
 {% block title %}Login{% endblock title %}
 {% block page_title %}Login{% endblock page_title %}
 {% block content %}
-<div class="container d-flex justify-content-center align-items-center ">
+
     {% if not request.user.is_authenticated %}
         <form action='' method='POST'> {% csrf_token %}
-            <div class="row justify-content-center">
-                {% if messages %}
-                    <div class="col-md-7 badge bg-success mb-3">
-                        {% for message in messages %}
-                           <h5> <span class="align-middle" > {{ message }} </span> </h5>
-                        {% endfor %}
-                    </div>
-                {% endif %}
-                <div class="col-md-8 mb-2">
-                    {% if error %}
-                    <p style='color:red'>{{error}}</p>
-                    {% endif %}
-                    <div class="form-group">
-                        <div class="form-floating">
-                            <input type="text" class="form-control" id="floatingInput" placeholder="Username" name="username">
-                            <label for="floatingInput" class="text-dark">Username</label>
-                        </div>
-                    </div>
+            {% if error %}
+                <p class='col-lg-3 mb-2 mx-auto bg-danger text-center rounded'>{{ error }}</p>
+            {% endif %}
+            {% if messages %}
+                <div class="col-lg-3 mb-2 mx-auto bg-success text-center rounded">
+                    {% for message in messages %}
+                        <h5> <span class="align-middle" > {{ message }} </span> </h5>
+                    {% endfor %}
                 </div>
-                <div class="col-md-8">
-                    <div class="form-floating">
-                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
-                        <label for="floatingPassword" class="text-dark">Password</label>
-                    </div>
+            {% endif %}
+
+            <div class="form-group col-lg-3 mb-2 mx-auto">
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="Username" name="username">
+                    <label for="floatingInput" class="text-dark">Username</label>
                 </div>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <div class="form-group">
-                        <div class="checkbox mb-3">
-                            <label>
-                                <input type="checkbox" value="remember-me"> Remember me
-                            </label>
-                        </div>
-                        <div>
-                            <button class="w-100 btn btn-lg btn-primary" type="submit" name='login'>Login</button>
-                        </div>
-                    </div>
+            <div class="form-group col-lg-3 mb-2 mx-auto">
+                <div class="form-floating">
+                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
+                    <label for="floatingPassword" class="text-dark">Password</label>
                 </div>
             </div>
+
+            <div class="checkbox mb-3 col-lg-3 mb-2 mx-auto">
+                <label>
+                    <input type="checkbox" value="remember-me"> Remember me
+                </label>
+            </div>
+
+
+
+                <div class="form-group col-lg-3 mb-2 mx-auto">
+                    <div>
+                        <button class="w-100 btn btn-lg btn-primary" type="submit" name='login'>Login</button>
+                    </div>
+                </div>
         </form>
     {% else %}
-        <p> You're alredy logged in. Would you like to <a href="/login/">logout?</a></p>
+        <p> You're alredy logged in. Would you like to <a href="{% url 'logout' %}">logout?</a></p>
     {% endif %}
-</div>
 {% endblock %}

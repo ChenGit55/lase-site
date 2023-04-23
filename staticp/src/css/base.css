@@ -1,18 +1,24 @@
+:root {
+    --primary: #062957;
+    --secondary: #D49529;
+    --tertiary: #ffffff;
+  }
+
 body {
     font-family: 'Roboto', sans-serif;
-    color: #062957;
+    color: var(--primary);
 }
 
 header {
-    background-color: #062957;
+    background-color: var(--primary);
 }
 
 header .navbar a{
-    color: #ffffff;
+    color: var(--tertiary);
 }
 
 .dropdown-menu {
-    background-color: #062957
+    background-color: var(--primary);
 }
 
 @media (min-width: 992px) {
@@ -23,19 +29,19 @@ header .navbar a{
 
 #logiNav{
     display: flex;
-    background-color: #d49529;
+    background-color: var(--secondary);
     height: auto;
     align-items: center;
 }
 
 #logiNav a{
-    color: #ffffff;
+    color: var(--tertiary);
 }
 
 #login{
     font-size: small;
     height: fit-content;
-    color: #ffffff;
+    color: var(--tertiary);
 }
 
 .carousel img {
@@ -45,15 +51,15 @@ header .navbar a{
 }
 
 .btn{
-    color: #ffffff;
-    border-color: #ffffff;
-    background-color: #062957;
+    color: var(--tertiary);
+    border-color: var(--tertiary);
+    background-color: var(--primary);
 }
 
 .btn:hover{
-    color: #062957;
-    border-color: #062957;
-    background-color: #ffffff;
+    color: var(--primary);
+    border-color: var(--primary);
+    background-color: var(--tertiary);
 }
 
 /* change the color of the toggle button */
@@ -84,10 +90,10 @@ h1 {
 svg {
     width: 10;
     height: auto;
-    color: #062957;
+    color: var(--primary);
 }
 svg:hover{
-    color: #d49529;
+    color: var(--secondary);
 }
 .custom-svg {
     width: 30px;

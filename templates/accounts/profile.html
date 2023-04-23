@@ -15,9 +15,6 @@
         <div class="flex-row">
             <strong>Email:</strong> {{ user.email }}
         </div>
-        <div class="flex-row">
-            <strong>Joined On:</strong> {{ user.date_joined }}
-        </div>
         <div>
             <a class="btn btn-primary mt-2" href="{% url 'edit-profile' user.id %}" role="button">Edit</a>
         </div>

@@ -79,3 +79,22 @@ h1 {
     text-align: center;
     font-weight: 400;
 }
+
+/* svg styles */
+svg {
+    width: 10;
+    height: auto;
+    color: #062957;
+}
+svg:hover{
+    color: #d49529;
+}
+.custom-svg {
+    width: 30px;
+}
+
+/* logo styles */
+
+.logo-svg {
+    width: 100px;
+}

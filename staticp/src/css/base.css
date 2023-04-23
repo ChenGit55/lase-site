@@ -1,36 +1,37 @@
 body {
     font-family: 'Roboto', sans-serif;
-    color: #ffffff;
+    color: #062957;
+}
+
+header {
     background-color: #062957;
+}
+
+header .navbar a{
+    color: #ffffff;
+}
+
+.dropdown-menu {
+    background-color: #062957
 }
 
 @media (min-width: 992px) {
     #myNav {
       padding: 0px 150px 0px 150px;
     }
+}
 
-    header{
-        background-size: cover;
-        background-position: center bottom 40%;
-        background-image: url("../img/field.jpg");
-        background-repeat: no-repeat;
-    }
+#logiNav{
+    display: flex;
+    background-color: #d49529;
+    height: 20px;
+    align-items: center;
+}
 
-    .navbar a{
-        color: #ffffff !important;
-    }
-
-    .nav a{
-        color: #ffffff !important;
-    }
-
-    .navbar .dropdown-menu{
-        background-color: #062957;
-    }
-
-    .navbar a:hover{
-        color: #062957 !important;
-    }
+#login{
+    font-size: small;
+    height: fit-content;
+    color: #ffffff;
 }
 
 .carousel img {
@@ -50,6 +51,16 @@ body {
     border-color: #062957;
     background-color: #ffffff;
 }
+
+/* change the color of the toggle button */
+.custom-toggler.navbar-toggler {
+    border-color: rgb(255, 255, 255);
+}
+.custom-toggler .navbar-toggler-icon {
+    background-image: url(
+"data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
 #userIcon {
     width: 40px;
     height: 40px;
@@ -60,17 +71,7 @@ h1 {
     font-weight: 700;
 }
 
-header {
-    background-color: #ffffff;
-}
-
-#logo {
-    width: 100px;
-    height: auto;
-    z-index: 1;
-}
-
 #text {
     text-align: center;
-    font-weight: 200;
+    font-weight: 400;
 }

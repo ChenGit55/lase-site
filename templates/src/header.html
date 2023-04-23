@@ -1,12 +1,5 @@
 {% load static %}
-<div class="container">
-    <div class="row justify-content-center">
-      <div class="col-auto">
-        <object id="logo" class="d-none d-md-block" type="image/svg+xml" data="{% static 'src/img/lase-logo.svg' %}"></object>
-      </div>
-    </div>
-</div>
-<div class="dropdown d-flex justify-content-end">
+<nav class="dropdown d-flex justify-content-end" id="logiNav">
     {% if user.is_authenticated %}
         <img id="userIcon" src="{% static 'src/img/user-icon.svg' %}" class="dropdown-toggle rounded-circle" data-bs-toggle="dropdown" aria-expanded="false">
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -22,9 +15,9 @@
             <li><a class="nav-link" id="login" href="{% url 'sign-up' %}">Sign Up</a></li>
         </ul>
     {% endif %}
-</div>
-<nav class="navbar navbar-expand-lg navbar-light" id="myNav">
-    <div class="container-fluid">
+</nav>
+<nav class="navbar navbar-expand-lg pt-2" id="myNav">
+    <div class="container">
       <a class="navbar-brand" href="{% url 'home' %}">LA Evollution</a>
       <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

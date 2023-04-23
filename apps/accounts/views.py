@@ -1,13 +1,14 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import get_user_model, authenticate, login, logout
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect, get_object_or_404
+from .forms import CustomUserChangeForm
 from django.urls import reverse_lazy
 from django.conf import settings
 from django.contrib import messages
 from students.models import Student
-User = get_user_model()
 
+User = get_user_model()
 
 def login_view(request):
     if request.method == "POST":
@@ -26,7 +27,6 @@ def logout_view(request):
         logout(request)
         redirect('/login')
     return render(request, 'logout.html', {})
-
 
 def create_user_view(request):
     if request.method == 'POST':
@@ -53,16 +53,17 @@ def profile_view(request, user_id):
     }
     return render(request, 'profile.html', context)
 
-
-
 @login_required
 def edit_profile_view(request, user_id):
     user = User.objects.get(pk=user_id)
     if request.method == 'POST':
-        form = UserChangeForm(request.POST, instance=user)
+        form = CustomUserChangeForm(request.POST, instance=user)
         if form.is_valid():
+            print(form.errors)
             form.save()
             return redirect(reverse_lazy(settings.LOGIN_REDIRECT_URL, args=[request.user.id]))
+        else:
+            print(form.errors)
     else:
-        form = UserChangeForm(instance=user)
+        form = CustomUserChangeForm(instance=user)
     return render(request, 'edit-profile.html', {'form': form})

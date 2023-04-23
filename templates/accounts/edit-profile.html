@@ -3,17 +3,11 @@
 {% block title %}Profile{% endblock title %}
 {% block page_title %}{{ user.first_name }} Profile{% endblock page_title %}
 {% block content %}
-    <div class="container d-flex justify-content-start align-items-center">
+    <div class="flex-container d-inline-block justify-content-start align-items-center border rounded  bg-black p-3 ">
+        <h5>Personal Information</h5>
+        <hr>
         <form method="post">
             {% csrf_token %}
-            <div class="row g-2 align-items-center mb-2">
-                <div class="col-4">
-                    {{ form.username.label}}
-                </div>
-                <div class="col-8">
-                    {{ form.username|add_class:'form-control' }}
-                </div>
-            </div>
             <div class="row g-2 align-items-center mb-2">
                 <div class="col-4">
                     {{ form.first_name.label}}
@@ -39,6 +33,7 @@
                 </div>
             </div>
             <button type="submit" class="btn btn-primary mt-3">Save changes</button>
+            <a class="btn btn-primary mt-3" href="{% url 'profile' user.id %}" role="button">Cancel</a>
         </form>
     </div>
 

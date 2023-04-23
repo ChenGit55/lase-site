@@ -8,9 +8,14 @@ class CustomUserChangeForm(UserChangeForm):
     class Meta(UserChangeForm.Meta):
         model = get_user_model()
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['username'].required = False
+
     def clean(self):
         #original values
         cleaned_data = super().clean()
+        cleaned_data.pop('username', None)
         cleaned_data.pop('is_superuser', None)
         cleaned_data.pop('is_active', None)
         cleaned_data.pop('is_staff', None)

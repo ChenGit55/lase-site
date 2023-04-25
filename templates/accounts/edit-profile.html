@@ -6,14 +6,14 @@
     <div class="flex-container d-inline-block justify-content-start align-items-center border rounded p-3">
         <h5>Personal Information</h5>
         <hr>
-        <form method="post">
+        <form method="post"> <!-- edit form -->
             {% csrf_token %}
             <div class="row g-2 align-items-center mb-2">
                 <div class="col-4">
                     {{ form.first_name.label}}
                 </div>
                 <div class="col-8">
-                    {{ form.first_name|add_class:'form-control' }}
+                    {{ form.first_name|add_class:'form-control' }} <!-- first name input -->
                 </div>
             </div>
             <div class="row g-2 align-items-center mb-2">
@@ -21,7 +21,7 @@
                     {{ form.last_name.label}}
                 </div>
                 <div class="col-8">
-                    {{ form.last_name|add_class:'form-control' }}
+                    {{ form.last_name|add_class:'form-control' }} <!-- last name input -->
                 </div>
             </div>
             <div class="row g-2 align-items-center mb-2">
@@ -29,7 +29,7 @@
                     {{ form.email.label}}
                 </div>
                 <div class="col-8">
-                    {{ form.email|add_class:'form-control' }}
+                    {{ form.email|add_class:'form-control' }} <!-- email input -->
                 </div>
             </div>
             <button type="submit" class="btn btn-primary mt-3">Save changes</button>

@@ -8,10 +8,10 @@
             {% csrf_token %}
             <hr>
             <div>
-                <div class="form-group row">
+                <div class="form-group row"> <!-- register form -->
                     <div class="col-12">
                         {{ form.username.label }}
-                        {{ form.username|add_class:'form-control' }}
+                        {{ form.username|add_class:'form-control' }} <!-- username input -->
                         <div class="bg-danger text-white rounded mt-1" id="errorDiv" style="display:none; visibility: hidden">
                             <ul>
                                 {% for error in form.errors.username %}
@@ -27,7 +27,7 @@
                 <div class="form-group row">
                     <div class="col-12">
                         {{ form.password1.label }}
-                        {{ form.password1|add_class:'form-control' }}
+                        {{ form.password1|add_class:'form-control' }} <!-- password input -->
                         <div class="bg-danger text-white rounded mt-1" id="errorDiv2" style="display:none; visibility: hidden">
                             <ul>
                                 {% for error in form.errors.password2 %}
@@ -43,7 +43,7 @@
                 <div class="form-group row">
                     <div class="col-12">
                         {{ form.password2.label }}
-                        {{ form.password2|add_class:'form-control' }}
+                        {{ form.password2|add_class:'form-control' }} <!-- password confirmation input -->
                         <ul>
                             <li class="text-black-50">{{ form.password2.help_text }}</li>
                         </ul>

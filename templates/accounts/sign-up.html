@@ -12,7 +12,7 @@
                     <div class="col-12">
                         {{ form.username.label }}
                         {{ form.username|add_class:'form-control' }}
-                        <div class="bg-danger rounded mt-1" id="errorDiv" style="display:none; visibility: hidden">
+                        <div class="bg-danger text-white rounded mt-1" id="errorDiv" style="display:none; visibility: hidden">
                             <ul>
                                 {% for error in form.errors.username %}
                                     <li>{{ error }}</li>
@@ -28,7 +28,7 @@
                     <div class="col-12">
                         {{ form.password1.label }}
                         {{ form.password1|add_class:'form-control' }}
-                        <div class="bg-danger rounded mt-1" id="errorDiv2" style="display:none; visibility: hidden">
+                        <div class="bg-danger text-white rounded mt-1" id="errorDiv2" style="display:none; visibility: hidden">
                             <ul>
                                 {% for error in form.errors.password2 %}
                                     <li>{{ error }}</li>

@@ -6,10 +6,10 @@
     {% if not request.user.is_authenticated %}
         <form action='' method='POST'> {% csrf_token %}
             {% if error %}
-                <p class='col-lg-3 mb-2 mx-auto bg-danger text-center rounded'>{{ error }}</p>
+                <p class='col-lg-3 mb-2 mx-auto bg-danger text-white text-center rounded'>{{ error }}</p>
             {% endif %}
             {% if messages %}
-                <div class="col-lg-3 mb-2 mx-auto bg-success text-center rounded">
+                <div class="col-lg-3 mb-2 mx-auto bg-success text-white text-center rounded">
                     {% for message in messages %}
                         <h5> <span class="align-middle" > {{ message }} </span> </h5>
                     {% endfor %}

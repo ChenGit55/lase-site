@@ -29,6 +29,10 @@ header .navbar a{
     #myNav {
       padding: 0px 150px 0px 150px;
     }
+
+    .sidetext{
+        border-left: 0.1rem solid var(--primary);
+    }
 }
 
 #logiNav{

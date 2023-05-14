@@ -31,7 +31,7 @@ header .navbar a{
     }
 
     .sidetext{
-        border-left: 0.1rem solid var(--primary);
+        border-left: 0.15rem solid var(--primary);
     }
 }
 

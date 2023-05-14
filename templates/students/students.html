@@ -16,21 +16,11 @@
         <tbody>
         {% for s in qs %}
             <tr onclick="location.href='{{ s.get_absolute_url }}'" class="user-select-none pe-auto" style="cursor: pointer;">
-                <th>
-                    {{ s.id }}
-                </th>
-                <th>
-                    {{ s.student_fname }} {{ s.student_lname }}
-                </th>
-                <th>
-                    {{ s.age_calc }}
-                </th>
-                <th>
-                    {{ s.gender }}
-                </th>
-                <th>
-                    {{ s.program }}
-                </th>
+                <td>{{ s.id }}</td>
+                <td>{{ s.student_fname }} {{ s.student_lname }}</td>
+                <td>{{ s.age_calc }}</td>
+                <td>{{ s.gender }}</td>
+                <td>{{ s.program }}</td>
             </tr>
         {% endfor %}
       </tbody>

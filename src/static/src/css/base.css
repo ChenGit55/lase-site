@@ -25,6 +25,7 @@ header .navbar a{
     background-color: var(--primary);
 }
 
+
 @media (min-width: 992px) {
     #myNav {
       padding: 0px 150px 0px 150px;

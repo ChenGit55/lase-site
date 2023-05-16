@@ -2,7 +2,7 @@
     --primary: #062957;
     --secondary: #D49529;
     --tertiary: #ffffff;
-  }
+}
 
 body {
     font-family: 'Roboto', sans-serif;
@@ -23,6 +23,12 @@ header .navbar a{
 
 .dropdown-menu {
     background-color: var(--primary);
+}
+
+
+#profile-pic{
+    width: 50px;
+    height: auto;
 }
 
 

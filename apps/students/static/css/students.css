@@ -1,0 +1,36 @@
+#students-section {
+    margin-top: 50px;
+
+}
+
+
+.student-card {
+    color: #ffffff;
+    margin-top: 10px;
+    padding: 30px;
+    width: 500px;
+    background: var(--primary);
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.404);;
+    cursor: pointer;
+}
+
+.student-card:hover {
+    background: var(--secondary);
+    box-shadow: none;;
+}
+
+div#card-pic {
+    text-align: center;
+}
+
+#profile-pic {
+    width: 150px;
+    height: auto;
+}
+
+div#card-content {
+    align-content: center;
+    align-items: center;
+    text-align: left;
+}

@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load widget_tweaks %}
 {% block title %}Profile{% endblock title %}
+{% block linkcss %}{% endblock linkcss %}
 {% block page_title %}{{ user.first_name }} Profile{% endblock page_title %}
 {% block content %}
     <div class="flex-container d-inline-block justify-content-start align-items-center border rounded p-3">
@@ -38,3 +39,4 @@
     </div>
 
 {% endblock content %}
+{% block script %}{% endblock script %}

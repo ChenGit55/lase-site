@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% block title %}Profile{% endblock title %}
+{% block linkcss %}{% endblock linkcss %}
 {% block page_title %}{{ user.first_name }} Profile{% endblock page_title %}
 {% block content %}
-
     <div class="flex-container d-inline-block justify-content-start border rounded p-3 ">
         <h5>Personal Information</h5>
         <hr>
@@ -24,6 +24,5 @@
             <li>No students found.</li>
         {% endfor %}
     </ul>
-
-
 {% endblock content %}
+{% block script %}{% endblock script %}

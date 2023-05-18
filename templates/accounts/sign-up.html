@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load widget_tweaks %}
 {% block title %}Sign Up{% endblock title %}
+{% block linkcss %}{% endblock linkcss %}
 {% block page_title %}Register{% endblock page_title %}
 {% block content %}
     <div class="container d-flex justify-content-center align-items-center">
@@ -55,12 +56,13 @@
             </div>
         </form>
     </div>
-{% if form.errors %}
-<script>
-    document.getElementById("errorDiv").style.display = "block";
-    document.getElementById("errorDiv").style.visibility = "visible";
-    document.getElementById("errorDiv2").style.display = "block";
-    document.getElementById("errorDiv2").style.visibility = "visible";
-</script>
-{% endif %}
+    {% if form.errors %}
+    <script>
+        document.getElementById("errorDiv").style.display = "block";
+        document.getElementById("errorDiv").style.visibility = "visible";
+        document.getElementById("errorDiv2").style.display = "block";
+        document.getElementById("errorDiv2").style.visibility = "visible";
+    </script>
+    {% endif %}
 {% endblock content %}
+{% block script %}{% endblock script %}

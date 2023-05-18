@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block title %}Login{% endblock title %}
+{% block linkcss %}{% endblock linkcss %}
 {% block page_title %}Login{% endblock page_title %}
 {% block content %}
 
@@ -47,3 +48,4 @@
         <p> You're alredy logged in. Would you like to <a href="{% url 'logout' %}">logout?</a></p>
     {% endif %}
 {% endblock %}
+{% block script %}{% endblock script %}

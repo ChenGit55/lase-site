@@ -1,32 +1,30 @@
 {% extends "base.html" %}
 {% load static %}
-{% block styles %}
-    <link rel="stylesheet" href="{% static 'src/css/home.css'%}">
-{% endblock %}
 {% block title %}Home{% endblock title %}
+{% block linkcss %}<link rel="stylesheet" href="{% static 'src/css/home.css'%}">{% endblock linkcss %}
 {% block page_title %}BRAZILIAN SOCCER TEACHING METHODOLOGY IN LA{% endblock page_title %}
 {% block content %}
-<h5 id="text">EXPLORE YOUR SOCCER CREATIVITY WITH BOLDNESS AND JOY</h5>
-<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src= "{% static 'src/img/lion-cubs-carousel.png' %}" class="d-block w-100" alt="...">
+  <h5 id="text">EXPLORE YOUR SOCCER CREATIVITY WITH BOLDNESS AND JOY</h5>
+  <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src= "{% static 'src/img/lion-cubs-carousel.png' %}" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="{% static 'src/img/evolution-academy-carousel.JPG' %}" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="{% static 'src/img/evolution-futsal-carousel.jpeg' %}" class="d-block w-100" alt="...">
+        </div>
       </div>
-      <div class="carousel-item">
-        <img src="{% static 'src/img/evolution-academy-carousel.JPG' %}" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="{% static 'src/img/evolution-futsal-carousel.jpeg' %}" class="d-block w-100" alt="...">
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-</div>
-
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+  </div>
 {% endblock content %}
+{% block script %}{% endblock script %}

@@ -1,26 +1,24 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block linkcss %}<link rel="stylesheet" href="{% static 'css/students.css' %}">{% endblock linkcss %}
 {% block title %}Students{% endblock title %}
+{% block linkcss %}<link rel="stylesheet" href="{% static 'css/students.css' %}">{% endblock linkcss %}
 {% block page_title %}Students{% endblock page_title %}
 {% block content %}
-
-<section id="students-section">
-  {% for s in qs %}
-  <div class="student-card" onclick="location.href='{{ s.get_absolute_url }}'">
-    <div class="row align-items-center">
-      <div id="card-pic"class="col-6">
-        <img id="profile-pic" src="{% static 'src/img/user-icon.svg' %}" alt="profile-pic">
-      </div>
-      <div id="card-content" class="col-6">
-        <p><strong>{{ s.student_fname }} {{ s.student_lname }}</strong></p>
-        <p class="align-middle">Age: {{ s.age_calc }}</p>
-        <p class="align-middle">Program: {{ s.program }}</p>
+  <section id="students-section">
+    {% for s in qs %}
+    <div class="student-card" onclick="location.href='{{ s.get_absolute_url }}'">
+      <div class="row align-items-center">
+        <div id="card-pic"class="col-6">
+          <img id="profile-pic" src="{% static 'src/img/user-icon.svg' %}" alt="profile-pic">
+        </div>
+        <div id="card-content" class="col-6">
+          <p><strong>{{ s.student_fname }} {{ s.student_lname }}</strong></p>
+          <p class="align-middle">Age: {{ s.age_calc }}</p>
+          <p class="align-middle">Program: {{ s.program }}</p>
+        </div>
       </div>
     </div>
-  </div>
-  {% endfor %}
-</section>
-
-
+    {% endfor %}
+  </section>
 {% endblock content %}
+{% block script %}{% endblock script %}

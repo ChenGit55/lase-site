@@ -3,11 +3,11 @@
 /* small-medium devices */
 
 @media (max-width: 991px) {
+
     /* change the color of the navbar toggle button */
     .custom-toggler.navbar-toggler {
         border-color: rgb(255, 255, 255);
     }
-
     .custom-toggler .navbar-toggler-icon {
         background-image: url(
     "data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
@@ -15,15 +15,19 @@
 }
 
 /* only-larger devices */
+
 @media (min-width: 992px) {
-    #myNav {
+    
+    .my-nav {
       padding: 0px 150px 0px 150px;
     }
+    /* STUDENTS */
 
-    #students-section {
+    .students-section {
         margin-top: 50px;
         width: 500px;
     }
+    /* PROGRAMS */
 
     .sidetext{
         border-left: 0.15rem solid var(--primary);
@@ -31,6 +35,8 @@
 }
 
 /* all devices */
+
+/* SRC */
 
 :root {
     --primary: #062957;
@@ -43,18 +49,18 @@ body {
     color: var(--primary);
 }
 
-.disabled{
+h1 {
+    text-align: center;
+    font-weight: 700;
+}
+
+.disabled {
     opacity: 50%;
 }
 
-#profile-pic{
-    width: 50px;
-    height: auto;
-}
-.carousel img {
-    object-fit: cover;
-    max-height: 500px;
-    width: auto;
+.text {
+    text-align: center;
+    font-weight: 400;
 }
 
 .btn{
@@ -69,53 +75,16 @@ body {
     background-color: var(--tertiary);
 }
 
-h1 {
-    text-align: center;
-    font-weight: 700;
+/* home */
+
+.carousel img {
+    object-fit: cover;
+    max-height: 500px;
+    width: auto;
 }
 
-#text {
-    text-align: center;
-    font-weight: 400;
-}
+/* logo */
 
-/* header css */
-
-header {
-    background-color: var(--primary);
-}
-
-header .navbar a{
-    color: var(--tertiary);
-}
-
-.dropdown-menu {
-    background-color: var(--primary);
-}
-
-#logiNav{
-    display: flex;
-    background-color: var(--secondary);
-    height: auto;
-    align-items: center;
-}
-
-#logiNav a{
-    color: var(--tertiary);
-}
-
-#login{
-    font-size: small;
-    height: fit-content;
-    color: var(--tertiary);
-}
-
-#userIcon {
-    width: 30px;
-    height: auto;
-}
-
-/* svg styles */
 svg {
     width: 10;
     height: auto;
@@ -128,13 +97,47 @@ svg:hover{
     width: 30px;
 }
 
-/* logo styles */
-
 .logo-svg {
     width: 100px;
 }
 
-/* students css*/
+/* header css */
+
+header {
+    background-color: var(--primary);
+}
+
+header .navbar a {
+    color: var(--tertiary);
+}
+
+.dropdown-menu {
+    background-color: var(--primary);
+}
+
+.login-nav {
+    display: flex;
+    background-color: var(--secondary);
+    height: auto;
+    align-items: center;
+}
+
+.login-nav a {
+    color: var(--tertiary);
+}
+
+.login {
+    font-size: small;
+    height: fit-content;
+    color: var(--tertiary);
+}
+
+.user-icon {
+    width: 30px;
+    height: auto;
+}
+
+/* STUDENTDS */
 
 .student-card {
     color: #ffffff;
@@ -152,22 +155,18 @@ svg:hover{
     box-shadow: none;;
 }
 
-div#card-pic {
+.card-pic {
     text-align: center;
 }
 
-#profile-pic {
+.profile-pic {
     width: 150px;
     height: auto;
 }
 
-div#card-content {
-    align-content: center;
-    align-items: center;
-    text-align: left;
-}
+/* enroll */
 
 input[type="date"] {
     color: #062957;
     width: 150px;
-  }
+}

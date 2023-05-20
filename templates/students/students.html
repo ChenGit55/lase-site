@@ -3,12 +3,12 @@
 {% block title %}Students{% endblock title %}
 {% block page_title %}Students{% endblock page_title %}
 {% block content %}
-  <section id="students-section">
+  <section class="students-section">
     {% for s in qs %}
     <div class="student-card" onclick="location.href='{{ s.get_absolute_url }}'">
       <div class="row align-items-center">
-        <div id="card-pic"class="col-md-6">
-          <img id="profile-pic" src="{% static 'src/img/user-icon.svg' %}" alt="profile-pic">
+        <div class="col-md-6 card-pic">
+          <img class="profile-pic" src="{% static 'src/img/user-icon.svg' %}" alt="profile-pic">
         </div>
         <div id="card-content" class="col-md-6">
           <p><strong>{{ s.student_fname }} {{ s.student_lname }}</strong></p>

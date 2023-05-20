@@ -1,7 +1,7 @@
 {% load static %}
-<nav class="dropdown d-flex justify-content-end" id="logiNav">
+<nav class="dropdown d-flex justify-content-end login-nav">
     {% if user.is_authenticated %}
-        <img id="userIcon" src="{% static 'src/img/user-icon.svg' %}" class="dropdown-toggle rounded-circle" data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="{% static 'src/img/user-icon.svg' %}" class="dropdown-toggle rounded-circle user-icon" data-bs-toggle="dropdown" aria-expanded="false">
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <li><a class="dropdown-item" href="{% url 'profile' user.id %}">{{ user.username }}</a></li>
             <li><a class="dropdown-item " href="{% url 'students' %}">Students</a></li>
@@ -11,12 +11,12 @@
         </ul>
     {% else %}
         <ul class="nav">
-            <li><a class="nav-link" id="login" href="{% url 'login' %}">Login</a></li>
-            <li><a class="nav-link" id="login" href="{% url 'sign-up' %}">Sign Up</a></li>
+            <li><a class="nav-link login"  href="{% url 'login' %}">Login</a></li>
+            <li><a class="nav-link login"  href="{% url 'sign-up' %}">Sign Up</a></li>
         </ul>
     {% endif %}
 </nav>
-<nav class="navbar navbar-expand-lg pt-2" id="myNav">
+<nav class="navbar navbar-expand-lg pt-2 my-nav">
     <div class="container">
       <a class="navbar-brand" href="{% url 'home' %}">LA Evollution</a>
       <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

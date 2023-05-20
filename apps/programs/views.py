@@ -17,6 +17,12 @@ def evolution_academy_view(request):
 def evolution_futsal_view(request):
     return render(request, 'evolution-futsal-club.html', context={})
 
+def camps_view(request):
+    return render(request, 'camps.html', context={})
+
+def tournaments_view(request):
+    return render(request, 'tournaments.html', context={})
+
 def private_training_view(request):
     return render(request, 'private-training.html', context={})
 

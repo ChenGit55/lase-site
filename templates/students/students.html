@@ -8,10 +8,10 @@
     {% for s in qs %}
     <div class="student-card" onclick="location.href='{{ s.get_absolute_url }}'">
       <div class="row align-items-center">
-        <div id="card-pic"class="col-6">
+        <div id="card-pic"class="col-md-6">
           <img id="profile-pic" src="{% static 'src/img/user-icon.svg' %}" alt="profile-pic">
         </div>
-        <div id="card-content" class="col-6">
+        <div id="card-content" class="col-md-6">
           <p><strong>{{ s.student_fname }} {{ s.student_lname }}</strong></p>
           <p class="align-middle">Age: {{ s.age_calc }}</p>
           <p class="align-middle">Program: {{ s.program }}</p>

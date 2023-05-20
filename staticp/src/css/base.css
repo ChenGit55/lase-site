@@ -1,3 +1,37 @@
+/* only-small devices */
+
+/* small-medium devices */
+
+@media (max-width: 991px) {
+    /* change the color of the navbar toggle button */
+    .custom-toggler.navbar-toggler {
+        border-color: rgb(255, 255, 255);
+    }
+
+    .custom-toggler .navbar-toggler-icon {
+        background-image: url(
+    "data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+    }
+}
+
+/* only-larger devices */
+@media (min-width: 992px) {
+    #myNav {
+      padding: 0px 150px 0px 150px;
+    }
+
+    #students-section {
+        margin-top: 50px;
+        width: 500px;
+    }
+
+    .sidetext{
+        border-left: 0.15rem solid var(--primary);
+    }
+}
+
+/* all devices */
+
 :root {
     --primary: #062957;
     --secondary: #D49529;
@@ -9,6 +43,44 @@ body {
     color: var(--primary);
 }
 
+.disabled{
+    opacity: 50%;
+}
+
+#profile-pic{
+    width: 50px;
+    height: auto;
+}
+.carousel img {
+    object-fit: cover;
+    max-height: 500px;
+    width: auto;
+}
+
+.btn{
+    color: var(--tertiary);
+    border-color: var(--tertiary);
+    background-color: var(--primary);
+}
+
+.btn:hover{
+    color: var(--primary);
+    border-color: var(--primary);
+    background-color: var(--tertiary);
+}
+
+h1 {
+    text-align: center;
+    font-weight: 700;
+}
+
+#text {
+    text-align: center;
+    font-weight: 400;
+}
+
+/* header css */
+
 header {
     background-color: var(--primary);
 }
@@ -17,29 +89,8 @@ header .navbar a{
     color: var(--tertiary);
 }
 
-.disabled{
-    opacity: 50%;
-}
-
 .dropdown-menu {
     background-color: var(--primary);
-}
-
-
-#profile-pic{
-    width: 50px;
-    height: auto;
-}
-
-
-@media (min-width: 992px) {
-    #myNav {
-      padding: 0px 150px 0px 150px;
-    }
-
-    .sidetext{
-        border-left: 0.15rem solid var(--primary);
-    }
 }
 
 #logiNav{
@@ -59,46 +110,9 @@ header .navbar a{
     color: var(--tertiary);
 }
 
-.carousel img {
-    object-fit: cover;
-    max-height: 500px; /* Define o tamanho máximo da altura da imagem */
-    width: auto; /* Garante que a largura da imagem seja ajustada automaticamente */
-}
-
-.btn{
-    color: var(--tertiary);
-    border-color: var(--tertiary);
-    background-color: var(--primary);
-}
-
-.btn:hover{
-    color: var(--primary);
-    border-color: var(--primary);
-    background-color: var(--tertiary);
-}
-
-/* change the color of the toggle button */
-.custom-toggler.navbar-toggler {
-    border-color: rgb(255, 255, 255);
-}
-.custom-toggler .navbar-toggler-icon {
-    background-image: url(
-"data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-}
-
 #userIcon {
     width: 30px;
     height: auto;
-}
-
-h1 {
-    text-align: center;
-    font-weight: 700;
-}
-
-#text {
-    text-align: center;
-    font-weight: 400;
 }
 
 /* svg styles */
@@ -119,3 +133,41 @@ svg:hover{
 .logo-svg {
     width: 100px;
 }
+
+/* students css*/
+
+.student-card {
+    color: #ffffff;
+    margin-top: 10px;
+    padding: 30px;
+    width: auto;
+    background: var(--primary);
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.404);;
+    cursor: pointer;
+}
+
+.student-card:hover {
+    background: var(--secondary);
+    box-shadow: none;;
+}
+
+div#card-pic {
+    text-align: center;
+}
+
+#profile-pic {
+    width: 150px;
+    height: auto;
+}
+
+div#card-content {
+    align-content: center;
+    align-items: center;
+    text-align: left;
+}
+
+input[type="date"] {
+    color: #062957;
+    width: 150px;
+  }

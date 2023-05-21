@@ -28,7 +28,9 @@ Required System
 
 * Python 3.8 or above
 * Django 3.2 or above
-* Packages:
+
+Packages
+---------
 - Django Bootstrap
 - Django Widget Tweaks
 - Python Decouple

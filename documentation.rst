@@ -31,8 +31,26 @@ Required System
 
 Packages
 ---------
-- Django Bootstrap
-- Django Widget Tweaks
-- Python Decouple
-- Stripe
-- Pillow
++ Django Bootstrap
++ Django Widget Tweaks
++ Python Decouple
++ Stripe
++ Pillow
+
+Main Functionalities
+====================
+
+Individual pages for programs and special sections
+User registration to log in
+Student registration
+
+Rotas e URLs
+============
+
+The following are the main project routes and URLs:
+
+`/`: Main page
+`accounts/login/`: Login page
+`accounts/sign-up/`: User registration page
+`students/enroll/`: Student registration page
+`students/`: Student list page

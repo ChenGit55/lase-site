@@ -1,9 +1,6 @@
 =============
 Documentation
 =============
---------------
-in development
---------------
 
 Introduction
 ============

@@ -27,10 +27,10 @@ Required System
 ===============
 
 * Python 3.8 or above
-* Django 3.2 or avove
+* Django 3.2 or above
 * Packages:
-  - Django Bootstrap
-  - Django Widget Tweaks
-  - Python Decouple
-  - Stripe
-  - Pillow
+- Django Bootstrap
+- Django Widget Tweaks
+- Python Decouple
+- Stripe
+- Pillow

@@ -1,13 +1,16 @@
 =============
 Documentation
 =============
+--------------
+in development
+--------------
 
 Introduction
 ============
 
-A simple website developed using the Django framework.
+This is a personal project to put into practice and improve my knowledge, a simple website developed using the Django framework.
 
-It provides information and a student registration.
+It provides information and a student registration, I did it for a friend who has a "soccer school"
 
 Project Structure
 =================

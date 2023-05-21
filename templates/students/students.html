@@ -3,28 +3,50 @@
 {% block title %}Students{% endblock title %}
 {% block page_title %}Students{% endblock page_title %}
 {% block content %}
-<main class="row">
-  <section class="students-section col-md-6">
-    {% for s in qs %}
-    <div class="student-card" onclick="location.href='{{ s.get_absolute_url }}'">
-      <div class="row align-items-center">
-        <div class="col-md-6 card-pic">
-          <img class="profile-pic" src="{% static 'src/img/user-icon.svg' %}" alt="profile-pic">
+  <main class="row">
+    <section class="students-section col-md-6">
+      {% for s in qs %}
+        <div class="student-card" onclick="location.href='{{ s.get_absolute_url }}'">
+          <div class="row align-items-center">
+            <div class="col-md-6 card-pic">
+              <img class="profile-pic" src="{% static 'src/img/user-icon.svg' %}" alt="profile-pic">
+            </div>
+            <div id="card-content" class="col-md-6">
+              <p><strong>{{ s.student_fname }} {{ s.student_lname }}</strong></p>
+              <p class="align-middle">Age: {{ s.age_calc }}</p>
+              <p class="align-middle">Program: {{ s.program }}</p>
+            </div>
+          </div>
         </div>
-        <div id="card-content" class="col-md-6">
-          <p><strong>{{ s.student_fname }} {{ s.student_lname }}</strong></p>
-          <p class="align-middle">Age: {{ s.age_calc }}</p>
-          <p class="align-middle">Program: {{ s.program }}</p>
-        </div>
-      </div>
-    </div>
-    <hr>
-    {% endfor %}
-  </section>
-  <section class="col-md-6">
-    Configuration
-  </section>
-</main>
-
+        <hr>
+      {% endfor %}
+    </section>
+    <section class="col-md-6">
+      <form action="" method="GET">
+        <input type="text" name="q">
+        <input type="submit" value="Search">
+      </form>
+      {% if student and query is not None %}
+        <ul>
+          {% for s in student %}
+            <div class="student-card" onclick="location.href='{{ s.get_absolute_url }}'">
+              <div class="row align-items-center">
+                <div class="col-md-6 card-pic">
+                  <img class="profile-pic" src="{% static 'src/img/user-icon.svg' %}" alt="profile-pic">
+                </div>
+                <div id="card-content" class="col-md-6">
+                  <p><strong>{{ s.student_fname }} {{ s.student_lname }}</strong></p>
+                  <p class="align-middle">Age: {{ s.age_calc }}</p>
+                  <p class="align-middle">Program: {{ s.program }}</p>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </ul>
+      {% else %}
+        Student does not exist!
+      {% endif %}
+    </section>
+  </main>
 {% endblock content %}
 {% block script %}{% endblock script %}

@@ -6,6 +6,7 @@ Introduction
 ============
 
 A simple website developed using the Django framework.
+
 It provides information and a student registration.
 
 Project Structure

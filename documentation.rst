@@ -49,8 +49,8 @@ Rotas e URLs
 
 The following are the main project routes and URLs:
 
-`/`: Main page
-`accounts/login/`: Login page
-`accounts/sign-up/`: User registration page
-`students/enroll/`: Student registration page
-`students/`: Student list page
+- `/`: Main page
+- `accounts/login/`: Login page
+- `accounts/sign-up/`: User registration page
+- `students/enroll/`: Student registration page
+- `students/`: Student list page

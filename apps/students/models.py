@@ -34,7 +34,7 @@ class Student(models.Model):
     PROGRAMS_CHOICES =[
         ('Lion Cubs', 'Lion Cubs'),
         ('Evolution Academy', 'Evolution Academy'),
-        ('Evolution Fusal Club', 'Evolution Futsal Club'),
+        ('Evolution Futsal Club', 'Evolution Futsal Club'),
     ]
 
     #phone validator

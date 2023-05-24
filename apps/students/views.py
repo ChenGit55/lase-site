@@ -19,18 +19,15 @@ def student_search_view(request):
 
 @superuser_required
 def student_view(request, slug=None):
-    query_dic = request.GET #get the input text by the name
-    query = query_dic.get("q")
-    student_detail = None
-    if query is not None and query != '':
-        student_detail = Student.objects.filter(slug__icontains= query)
+    program = request.GET.get("studentsfilter")
+    if program == "All":
+        students = Student.objects.all()
+    else:
+        students = Student.objects.filter(program=program)
     students_qs = Student.objects.all() #get a querry set from Student class
-    students_list = students_qs
     context = {
         'qs' : students_qs,
-        'students' : students_list,
-        'student' : student_detail,
-        'query' : query,
+        'students' : students,
     }
     return render(request, 'students.html', context)
 

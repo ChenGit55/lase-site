@@ -23,12 +23,17 @@
     </section>
     <section class="col-md-6">
       <form action="" method="GET">
-        <input type="text" name="q">
-        <input type="submit" value="Search">
+        <!--<input type="text" name="q">-->
+        <select name="studentsfilter" id="studentsfilter">
+          <option value="All">All</option>
+          <option value="Lion Cubs">Lion Cubs</option>
+          <option value="Evolution Academy">Evolution Academy</option>
+          <option value="Evolution Futsal Club">Evolution Futsal Club</option>
+        </select>
+        <input type="submit" value="Filter">
       </form>
-      {% if student and query is not None %}
         <ul>
-          {% for s in student %}
+          {% for s in students %}
             <div class="student-card" onclick="location.href='{{ s.get_absolute_url }}'">
               <div class="row align-items-center">
                 <div class="col-md-6 card-pic">
@@ -43,9 +48,6 @@
             </div>
           {% endfor %}
         </ul>
-      {% else %}
-        Student does not exist!
-      {% endif %}
     </section>
   </main>
 {% endblock content %}

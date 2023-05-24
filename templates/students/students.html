@@ -4,7 +4,8 @@
 {% block page_title %}Students{% endblock page_title %}
 {% block content %}
   <main class="row">
-    <section class="students-section col-md-6">
+    <!--
+      <section class="students-section col-md-6">
       {% for s in qs %}
         <div class="student-card" onclick="location.href='{{ s.get_absolute_url }}'">
           <div class="row align-items-center">
@@ -21,6 +22,8 @@
         <hr>
       {% endfor %}
     </section>
+    -->
+
     <section class="col-md-6">
       <form action="" method="GET">
         <!--<input type="text" name="q">-->

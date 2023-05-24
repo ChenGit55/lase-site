@@ -47,6 +47,7 @@ def enroll_success_view(request):
     return render(request, 'enroll-success.html', {})
 
 def student_detail_view(request, slug=None):
+    student_detail = None
     form = StatisticForm(request.POST or None)
     if slug is not None:
         try:

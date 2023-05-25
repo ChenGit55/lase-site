@@ -3,29 +3,9 @@
 {% block title %}Students{% endblock title %}
 {% block page_title %}Students{% endblock page_title %}
 {% block content %}
-  <main class="row">
-    <!--
-      <section class="students-section col-md-6">
-      {% for s in qs %}
-        <div class="student-card" onclick="location.href='{{ s.get_absolute_url }}'">
-          <div class="row align-items-center">
-            <div class="col-md-6 card-pic">
-              <img class="profile-pic" src="{% static 'src/img/user-icon.svg' %}" alt="profile-pic">
-            </div>
-            <div id="card-content" class="col-md-6">
-              <p><strong>{{ s.student_fname }} {{ s.student_lname }}</strong></p>
-              <p class="align-middle">Age: {{ s.age_calc }}</p>
-              <p class="align-middle">Program: {{ s.program }}</p>
-            </div>
-          </div>
-        </div>
-        <hr>
-      {% endfor %}
-    </section>
-    -->
-
-    <section class="col-md-6">
-      <form action="" method="GET">
+  <main>
+    <section>
+      <form  style="text-align: center;" action="" method="GET">
         <!--<input type="text" name="q">-->
         <select name="studentsfilter" id="studentsfilter">
           <option value="All">All</option>
@@ -35,22 +15,26 @@
         </select>
         <input type="submit" value="Filter">
       </form>
-        <ul>
-          {% for s in students %}
-            <div class="student-card" onclick="location.href='{{ s.get_absolute_url }}'">
-              <div class="row align-items-center">
-                <div class="col-md-6 card-pic">
-                  <img class="profile-pic" src="{% static 'src/img/user-icon.svg' %}" alt="profile-pic">
-                </div>
-                <div id="card-content" class="col-md-6">
-                  <p><strong>{{ s.student_fname }} {{ s.student_lname }}</strong></p>
-                  <p class="align-middle">Age: {{ s.age_calc }}</p>
-                  <p class="align-middle">Program: {{ s.program }}</p>
-                </div>
+      {% for s in students %}
+        <section style="border-bottom: 2px solid var(--primary); padding-bottom: 10px; width: fit-content;">
+          <div class="d-inline-flex student-card" onclick="location.href='{{ s.get_absolute_url }}'">
+            <div class="d-inline-flex inner-card">
+              <div class="card-pic">
+                <img class="profile-pic" src="{% static 'src/img/user-icon.svg' %}" alt="profile-pic">
+                <p style="text-align: center; font-weight: 800; font-size: 25pt;"><strong>{{ s.student_fname }}</strong></p>
+              </div>
+              <div class="card-content">
+                <p style=" font-weight: 500; font-size: 20pt;"><strong>Informations</strong></p>
+                <p>Full Name: {{ s.student_fname }} {{ s.student_lname }}</p>
+                <p>Age: {{ s.age_calc }}</p>
+                <p>Program: {{ s.program }}</p>
+                <p>Parent: {{ s.parent_fname }} {{ s.parent_lname }}</p>
+                <p>Tel: {{ s.parent_phone }}</p>
               </div>
             </div>
-          {% endfor %}
-        </ul>
+          </div>
+        </section>
+      {% endfor %}
     </section>
   </main>
 {% endblock content %}

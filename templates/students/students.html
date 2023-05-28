@@ -16,14 +16,14 @@
         <input type="submit" value="Filter">
       </form>
       {% for s in students %}
-        <section style="border-bottom: 2px solid var(--primary); padding-bottom: 10px; width: fit-content;">
+        <section style="border-bottom: 2px solid var(--primary); padding-bottom: 10px;">
           <div class="d-inline-flex student-card" onclick="location.href='{{ s.get_absolute_url }}'">
             <div class="d-inline-flex inner-card">
               <div class="card-pic">
                 <img class="profile-pic" src="{% static 'src/img/user-icon.svg' %}" alt="profile-pic">
                 <p style="text-align: center; font-weight: 800; font-size: 25pt;"><strong>{{ s.student_fname }}</strong></p>
               </div>
-              <div class="card-content">
+              <div class="card-content d-none d-lg-block">
                 <p style=" font-weight: 500; font-size: 20pt;"><strong>Informations</strong></p>
                 <p>Full Name: {{ s.student_fname }} {{ s.student_lname }}</p>
                 <p>Age: {{ s.age_calc }}</p>

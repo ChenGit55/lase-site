@@ -12,6 +12,15 @@
         background-image: url(
     "data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
     }
+
+    .student-card{
+        width: 100%;
+    }
+
+    .inner-card{
+        width: 100%;
+        justify-content: center;
+    }
 }
 
 /* only-larger devices */
@@ -30,6 +39,21 @@
     .student-search {
         margin-top: 50px;
         width: 500px;
+    }
+
+    .inner-card{
+        width: 500px;
+        height: 70%;
+    }
+
+    .card-pic {
+        border-right: 2px solid #ffffff;
+        width: 50%;
+    }
+
+    .card-content{
+        padding-left: 20px;
+        width: 50%;
     }
     /* PROGRAMS */
 
@@ -160,23 +184,11 @@ header .navbar a {
 }
 
 .inner-card{
-    width: 500px;
-    height: 70%;
     padding: 15px;
     border: 2px solid rgb(255, 255, 255);
     border-radius: 20px;
-
 }
 
-.card-pic {
-    border-right: 2px solid #ffffff;
-    width: 50%;
-}
-
-.card-content{
-    padding-left: 20px;
-    width: 50%;
-}
 /* enroll */
 
 input[type="date"] {

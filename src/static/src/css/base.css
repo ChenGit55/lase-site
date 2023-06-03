@@ -92,16 +92,16 @@ h1 {
     font-weight: 400;
 }
 
-.btn{
+.btn-primary{
     color: var(--tertiary);
-    border-color: var(--tertiary);
+    border-color: var(--primary);
     background-color: var(--primary);
 }
 
-.btn:hover{
-    color: var(--primary);
-    border-color: var(--primary);
-    background-color: var(--tertiary);
+.btn-primary:hover{
+    color: var(--tertiary);
+    border-color: var(--secondary);
+    background-color: var(--secondary);
 }
 
 /* home */

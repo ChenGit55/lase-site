@@ -22,7 +22,8 @@ def student_search_view(request):
 def student_view(request, slug=None):
     program = request.GET.get("studentsfilter")
     if program == "All":
-        students = Student.objects.all()
+        all_students = Student.objects.all()
+        students = all_students.order_by('student_fname')
     else:
         students = Student.objects.filter(program=program)
     students_qs = Student.objects.all() #get a querry set from Student class
@@ -44,6 +45,7 @@ def student_create_view(request):
         return redirect('enroll-success')
     return render(request, 'enroll.html', context)
 
+@superuser_required
 def student_edit_view(request, slug):
     student = Student.objects.get(slug=slug)
     if request.method == 'POST':
@@ -62,9 +64,21 @@ def student_edit_view(request, slug):
         }
     return render(request, 'student-edit.html', context)
 
+@superuser_required
+def student_delete_view(request, slug):
+    student = Student.objects.get(slug=slug)
+    context = {
+        'student' : student,
+    }
+    if request.method == 'POST':
+        student.delete()
+        return redirect('students')
+    return render(request, 'student-delete.html', context)
+
 def enroll_success_view(request):
     return render(request, 'enroll-success.html', {})
 
+@superuser_required
 def student_detail_view(request, slug=None):
     student_detail = None
     form = StatisticForm(request.POST or None)

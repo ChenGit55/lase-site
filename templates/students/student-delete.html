@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Student{% endblock title %}
+{% block page_title %}Student{% endblock page_title %}
+{% block content %}
+
+<p>Are you sure want to delete {{student.student_fname}}</p>
+<form action="" method="POST"> {% csrf_token %}
+    <button type="submit">YES</button>
+</form>
+
+{% endblock %}
+{% block script %}{% endblock script %}

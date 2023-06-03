@@ -4,6 +4,7 @@ from .models import Student, Statistic
 from .forms import StudentForm, StatisticForm
 from .utils import superuser_required
 from django.contrib import messages
+from django.urls import reverse
 
 def student_search_view(request):
     query_dic = request.GET #get the input text by the name
@@ -41,7 +42,25 @@ def student_create_view(request):
         context['form'] = StudentForm() #reinitializing form
         messages.success(request, 'Student enrolled successfully!')
         return redirect('enroll-success')
-    return render(request, 'enroll.html', context=context)
+    return render(request, 'enroll.html', context)
+
+def student_edit_view(request, slug):
+    student = Student.objects.get(slug=slug)
+    if request.method == 'POST':
+        form = StudentForm(request.POST, instance=student)
+        if form.is_valid():
+            print(form.errors)
+            form.save()
+            return redirect(reverse('details', kwargs={'slug' : student.slug}))
+        else:
+            print(form.errors)
+    else:
+        form = StudentForm(instance=student)
+        context = {
+            'student' : student,
+            'form' : form,
+        }
+    return render(request, 'student-edit.html', context)
 
 def enroll_success_view(request):
     return render(request, 'enroll-success.html', {})

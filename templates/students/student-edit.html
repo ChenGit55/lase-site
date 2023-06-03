@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Students{% endblock title %}
+{% block page_title %}Students{% endblock page_title %}
+{% block content %}
+
+    <p>{{ student.student_fname }}</p>
+
+    <div class="flex-container d-inline-block justify-content-start align-items-center border rounded p-3">
+        <h5>Student Information</h5>
+        <hr>
+        <form method="post"> <!-- edit form -->
+            {% csrf_token %}
+            <div class="row g-2 align-items-center mb-2">
+                <div class="col-4">
+                    {{ form.student_fname.label}}
+                </div>
+                <div class="col-8">
+                    {{ form.student_fname}}<!-- first name input -->
+                </div>
+            </div>
+            <div class="row g-2 align-items-center mb-2">
+                <div class="col-4">
+                    {{ form.student_lname.label }}
+                </div>
+                <div class="col-8">
+                    {{ form.student_lname }} <!-- last name input -->
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Save changes</button>
+            <a class="btn btn-primary mt-3" href="{% url 'details' student.slug %}" role="button">Cancel</a>
+        </form>
+    </div>
+{% endblock content %}
+{% block script %}{% endblock script %}

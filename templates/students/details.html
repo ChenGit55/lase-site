@@ -58,6 +58,9 @@
                     {{ stats.physical }}
                 </div>
             </div>
+            <div>
+                <a class="btn btn-primary mt-2" href="{% url 'edit' sd.slug %}">Edit</a>
+            </div>
         </div>
     {% endif %}
 {% endblock %}

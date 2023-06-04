@@ -32,7 +32,9 @@ def create_user_view(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save(commit=False)
+            user.is_superuser = True
+            user.save()
             messages.success(request, 'User successfully registered!')
             return redirect('login')
     else:

@@ -5,11 +5,11 @@ class StudentForm(forms.ModelForm):
 
     class Meta:
         model = Student
-        fields = ['student_fname', 'student_lname', 'birth_date', 'gender', 'program', 'additional_info']
+        fields = ['fname', 'lname', 'birth_date', 'gender', 'program', 'additional_info']
 
         labels = {
-            'student_fname' : 'Name',
-            'student_lname' : 'Last Name',
+            'fname' : 'Name',
+            'lname' : 'Last Name',
             'gender' : 'Gender',
             'birth_date' : 'Date of Birth',
             'additional_info' : 'Addtional Info',

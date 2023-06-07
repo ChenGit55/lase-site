@@ -2,40 +2,39 @@
 {% block title %}Logout{% endblock title %}
 {% block page_title %}Logout{% endblock page_title %}
 {% block content %}
-
-    {% if request.user.is_authenticated %}
-        <div class="modal modal-sheet position-static d-block bg-body-secondary p-4 py-md-5" tabindex="-1" role="dialog" id="modalChoice">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content rounded-3 shadow">
-                    <form action='' method='POST'> {% csrf_token %}
-                        <div class="modal-body p-4 text-center">
-                        <h5 class="mb-0 text-dark">Are you sure you want to logout?</h5>
-                        </div>
-                        <div class="modal-footer flex-nowrap p-0 ">
-                        <button type="submit" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 py-3 m-0 rounded-0 border-end "><strong>Yes, logout.</strong></button>
-                        <a type="button" role="button" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 py-3 m-0 rounded-0" href="{% url 'home' %}">No thanks.</button></a>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    {% else %}
-        <div class="modal modal-sheet position-static d-block bg-body-secondary p-4 py-md-5" tabindex="-1" role="dialog" id="modalChoice">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content rounded-3 shadow">
-                    <form action='' method='POST'> {% csrf_token %}
-                        <div class="modal-body p-4 text-center">
-                            <h5 class="mb-0 text-dark">You're not logged in!</h5>
-                            <p class="text-dark mt-4">Would you like to login?</p>
-                        </div>
-                        <div class="modal-footer flex-nowrap p-0 ">
-                            <a type="submit" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 py-3 m-0 rounded-0 border-end " href="{% url 'login' %}"><strong>Yes, login.</strong></a>
-                            <a type="button" role="button" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 py-3 m-0 rounded-0" href="{% url 'home' %}">No thanks.</button></a>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    {% endif %}
+	{% if request.user.is_authenticated %}
+			<div class="modal modal-sheet position-static d-block bg-body-secondary p-4 py-md-5" tabindex="-1" role="dialog" id="modalChoice">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content rounded-3 shadow">
+						<form action='' method='POST'> {% csrf_token %}
+							<div class="modal-body p-4 text-center">
+								<h5 class="mb-0 text-dark">Are you sure you want to logout?</h5>
+							</div>
+							<div class="modal-footer flex-nowrap p-0 ">
+								<button type="submit" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 py-3 m-0 rounded-0 border-end "><strong>Yes, logout.</strong></button>
+								<a type="button" role="button" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 py-3 m-0 rounded-0" href="{% url 'home' %}">No thanks.</button></a>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		{% else %}
+			<div class="modal modal-sheet position-static d-block bg-body-secondary p-4 py-md-5" tabindex="-1" role="dialog" id="modalChoice">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content rounded-3 shadow">
+						<form action='' method='POST'> {% csrf_token %}
+							<div class="modal-body p-4 text-center">
+								<h5 class="mb-0 text-dark">You're not logged in!</h5>
+								<p class="text-dark mt-4">Would you like to login?</p>
+							</div>
+							<div class="modal-footer flex-nowrap p-0 ">
+								<a type="submit" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 py-3 m-0 rounded-0 border-end " href="{% url 'login' %}"><strong>Yes, login.</strong></a>
+								<a type="button" role="button" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 py-3 m-0 rounded-0" href="{% url 'home' %}">No thanks.</button></a>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	{% endif %}
 {% endblock content %}
 {% block script %}{% endblock script %}

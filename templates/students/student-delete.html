@@ -3,7 +3,7 @@
 {% block page_title %}Student{% endblock page_title %}
 {% block content %}
 
-<p>Are you sure want to delete {{student.student_fname}}</p>
+<p>Are you sure want to delete {{student.fname}}</p>
 <form action="" method="POST"> {% csrf_token %}
     <button type="submit">YES</button>
 </form>

@@ -22,7 +22,7 @@ class Student(models.Model):
         return age
 
     def __str__(self):
-        return f'{self.id} {self.student_fname} {self.student_lname}'
+        return f'{self.id} {self.fname} {self.lname}'
 
     #creating gender options
     GENDER_CHOICES =[
@@ -49,8 +49,9 @@ class Student(models.Model):
     #link with an user
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
 
-    student_fname = models.CharField(max_length=50)
-    student_lname = models.CharField(max_length=100)
+    #student info
+    fname = models.CharField(max_length=50)
+    lname = models.CharField(max_length=100)
     birth_date = models.DateField(max_length=8, default=today, null=True, blank=True)
     gender = models.CharField(max_length=4, choices=GENDER_CHOICES, null=True, blank=True)
     program = models.CharField(max_length=50, choices=PROGRAMS_CHOICES, null=True, blank=True)

@@ -23,7 +23,7 @@ def student_view(request, slug=None):
     program = request.GET.get("studentsfilter")
     if program == "All":
         all_students = Student.objects.all()
-        students = all_students.order_by('student_fname')
+        students = all_students.order_by('fname')
     else:
         students = Student.objects.filter(program=program)
     students_qs = Student.objects.all() #get a querry set from Student class

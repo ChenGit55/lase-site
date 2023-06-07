@@ -9,7 +9,7 @@ class StudentTestCase(TestCase):
     def setUp(self):
         self.number_of_students = 5
         for i in range (0, self.number_of_students):
-            Student.objects.create(student_fname = 'melissa', student_lname = 'carvalho')
+            Student.objects.create(fname = 'melissa', lname = 'carvalho')
 
     def test_queryset_exsits(self):
         qs = Student.objects.all()
@@ -21,8 +21,8 @@ class StudentTestCase(TestCase):
 
     def test_slugs(self):
         obj = Student.objects.all().order_by("id").first()
-        name = obj.student_fname
-        lname = obj.student_lname
+        name = obj.fname
+        lname = obj.lname
         birthd = obj.birth_date
         slug = obj.slug
         slugify_instances = f'{name}-{lname}-{birthd}'
@@ -33,4 +33,3 @@ class StudentTestCase(TestCase):
         obj = Student.objects.all().order_by().first()
         slug = obj.slug
         self.assertNotEqual(new_slug, slug)
-

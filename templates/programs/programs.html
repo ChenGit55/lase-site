@@ -10,7 +10,7 @@
                 {% for s in sd %}
                     {% if s.program == 'lion cubs'%}
                         <li>
-                            <a href='{{ s.get_absolute_url }}' >{{ s.student_fname }}</a>
+                            <a href='{{ s.get_absolute_url }}' >{{ s.fname }}</a>
                         </li>
                     {% endif %}
                 {% endfor %}
@@ -22,7 +22,7 @@
                 {% for s in sd %}
                     {% if s.program == 'evolution academy'%}
                         <li>
-                            <a href='{{ s.get_absolute_url }}' >{{ s.student_fname }}</a>
+                            <a href='{{ s.get_absolute_url }}' >{{ s.fname }}</a>
                         </li>
                     {% endif %}
                 {% endfor %}
@@ -34,7 +34,7 @@
                 {% for s in sd %}
                     {% if s.program == 'evolution fusal club'%}
                         <li>
-                            <a href='{{ s.get_absolute_url }}' >{{ s.student_fname }}</a>
+                            <a href='{{ s.get_absolute_url }}' >{{ s.fname }}</a>
                         </li>
                     {% endif %}
                 {% endfor %}

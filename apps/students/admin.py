@@ -4,7 +4,7 @@ from .models import Student, Statistic
 admin.site.site_header = "LASE"
 
 class StudentAdmin(admin.ModelAdmin):
-    list_display = ['student_fname','program', 'id']
+    list_display = ['fname','program', 'id']
 
 admin.site.register(Student, StudentAdmin)
 

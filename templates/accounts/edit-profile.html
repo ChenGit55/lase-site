@@ -3,38 +3,41 @@
 {% block title %}Profile{% endblock title %}
 {% block page_title %}{{ user.first_name }} Profile{% endblock page_title %}
 {% block content %}
-    <div class="flex-container d-inline-block justify-content-start align-items-center border rounded p-3">
-        <h5>Personal Information</h5>
-        <hr>
-        <form method="post"> <!-- edit form -->
-            {% csrf_token %}
-            <div class="row g-2 align-items-center mb-2">
-                <div class="col-4">
-                    {{ form.first_name.label}}
-                </div>
-                <div class="col-8">
-                    {{ form.first_name|add_class:'form-control' }} <!-- first name input -->
-                </div>
-            </div>
-            <div class="row g-2 align-items-center mb-2">
-                <div class="col-4">
-                    {{ form.last_name.label}}
-                </div>
-                <div class="col-8">
-                    {{ form.last_name|add_class:'form-control' }} <!-- last name input -->
-                </div>
-            </div>
-            <div class="row g-2 align-items-center mb-2">
-                <div class="col-4">
-                    {{ form.email.label}}
-                </div>
-                <div class="col-8">
-                    {{ form.email|add_class:'form-control' }} <!-- email input -->
-                </div>
-            </div>
-            <button type="submit" class="btn btn-primary mt-3">Save changes</button>
-            <a class="btn btn-primary mt-3" href="{% url 'profile' user.id %}" role="button">Cancel</a>
-        </form>
-    </div>
+	<div class="flex-container d-inline-block justify-content-start align-items-center border rounded p-3">
+		<h5>Personal Information</h5>
+		<hr>
+		<form method="post"> <!-- edit form -->
+			{% csrf_token %}
+			<!-- first name input row -->
+			<div class="row g-2 align-items-center mb-2">
+				<div class="col-4">
+					{{ form.first_name.label}}
+				</div>
+				<div class="col-8">
+					{{ form.first_name|add_class:'form-control' }}
+				</div>
+			</div>
+			<!-- last name input row -->
+			<div class="row g-2 align-items-center mb-2">
+				<div class="col-4">
+					{{ form.last_name.label}}
+				</div>
+				<div class="col-8">
+					{{ form.last_name|add_class:'form-control' }}
+				</div>
+			</div>
+			<!-- email input row -->
+			<div class="row g-2 align-items-center mb-2">
+				<div class="col-4">
+					{{ form.email.label}}
+				</div>
+				<div class="col-8">
+					{{ form.email|add_class:'form-control' }}
+				</div>
+			</div>
+			<button type="submit" class="btn btn-primary mt-3">Save changes</button>
+			<a class="btn btn-primary mt-3" href="{% url 'profile' user.id %}" role="button">Cancel</a>
+		</form>
+	</div>
 {% endblock content %}
 {% block script %}{% endblock script %}

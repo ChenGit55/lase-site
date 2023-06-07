@@ -5,7 +5,7 @@
     {% if student and querry is not NULL %}
         <ul>
             {% for s in student %}
-                <li>{{ s.student_fname }} {{ s.student_lname }}</li>
+                <li>{{ s.fname }} {{ s.lname }}</li>
             {% endfor %}
         </ul>
     {% else %}

@@ -21,11 +21,11 @@
             <div class="d-inline-flex inner-card">
               <div class="card-pic">
                 <img class="profile-pic" src="{% static 'src/img/user-icon.svg' %}" alt="profile-pic">
-                <p style="text-align: center; font-weight: 800; font-size: 25pt;"><strong>{{ s.student_fname }}</strong></p>
+                <p style="text-align: center; font-weight: 800; font-size: 25pt;"><strong>{{ s.fname }}</strong></p>
               </div>
               <div class="card-content d-none d-lg-block">
                 <p style=" font-weight: 500; font-size: 20pt;"><strong>Informations</strong></p>
-                <p>Full Name: {{ s.student_fname }} {{ s.student_lname }}</p>
+                <p>Full Name: {{ s.fname }} {{ s.lname }}</p>
                 <p>Age: {{ s.age_calc }}</p>
                 <p>Program: {{ s.program }}</p>
                 <p>Parent: {{ s.parent_fname }} {{ s.parent_lname }}</p>

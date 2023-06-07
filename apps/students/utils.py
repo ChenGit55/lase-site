@@ -4,7 +4,7 @@ def slugify_instances(instance, save=False, new_slug=None): #auto slug generate
     if new_slug is not None:
         slug = new_slug
     else:
-        slug = slugify(f"{instance.student_fname}-{instance.student_lname}-{instance.birth_date}") #slug contains, First Name, Last Name and Birth Date
+        slug = slugify(f"{instance.fname}-{instance.lname}-{instance.birth_date}") #slug contains, First Name, Last Name and Birth Date
     Klass = instance.__class__
     qs = Klass.objects.filter(slug=slug).exclude(id=instance.id)
     if qs.exists():

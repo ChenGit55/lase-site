@@ -1,64 +1,64 @@
 {% load static %}
 <nav class="dropdown d-flex justify-content-end login-nav">
-    {% if user.is_authenticated %}
-        <img src="{% static 'src/img/user-icon.svg' %}" class="dropdown-toggle rounded-circle user-icon" data-bs-toggle="dropdown" aria-expanded="false">
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <li><a class="dropdown-item" href="{% url 'profile' user.id %}">{{ user.username }}</a></li>
-            {% if user.is_superuser %}
-              <li><a class="dropdown-item " href="{% url 'students' %}">Students</a></li>
-              <li><a class="dropdown-item disabled" href="#">Programs</a></li>
-            {% endif %}
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
-        </ul>
-    {% else %}
-        <ul class="nav">
-            <li><a class="nav-link login"  href="{% url 'login' %}">Login</a></li>
-            <li><a class="nav-link login"  href="{% url 'sign-up' %}">Sign Up</a></li>
-        </ul>
-    {% endif %}
+	{% if user.is_authenticated %}
+		<img src="{% static 'src/img/user-icon.svg' %}" class="dropdown-toggle rounded-circle user-icon" data-bs-toggle="dropdown" aria-expanded="false">
+		<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+			<li><a class="dropdown-item" href="{% url 'profile' user.id %}">{{ user.username }}</a></li>
+			{% if user.is_superuser %}
+				<li><a class="dropdown-item " href="{% url 'students' %}">Students</a></li>
+				<li><a class="dropdown-item disabled" href="#">Programs</a></li>
+			{% endif %}
+			<li><hr class="dropdown-divider"></li>
+			<li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+		</ul>
+	{% else %}
+		<ul class="nav">
+			<li><a class="nav-link login"  href="{% url 'login' %}">Login</a></li>
+			<li><a class="nav-link login"  href="{% url 'sign-up' %}">Sign Up</a></li>
+		</ul>
+	{% endif %}
 </nav>
 <nav class="navbar navbar-expand-lg pt-2 my-nav">
-    <div class="container">
-      <a class="navbar-brand" href="{% url 'home' %}">LA Evollution</a>
-      <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Programs
-            </a>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{% url 'lion-cubs' %}">Lion Cubs</a></li>
-                <li><a class="dropdown-item" href="{% url 'evolution-academy' %}">Evolution Academy</a></li>
-                <li><a class="dropdown-item" href="{% url 'evolution-futsal-club' %}">Evolution Futsal Club</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="{% url 'private-training' %}">Private Training</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="{% url 'camps' %}">Summer Camps</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="{% url 'tournaments' %}">Tournaments</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="{% url 'schools' %}">Schools</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="{% url 'about-us' %}">About Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'enroll' %}"> Enroll </a>
-          </li>
-        </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn" type="submit">Search</button>
-        </form>
-      </div>
-    </div>
-  </nav>
+	<div class="container">
+		<a class="navbar-brand" href="{% url 'home' %}">LA Evollution</a>
+		<button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Programs
+					</a>
+					<ul class="dropdown-menu">
+						<li><a class="dropdown-item" href="{% url 'lion-cubs' %}">Lion Cubs</a></li>
+						<li><a class="dropdown-item" href="{% url 'evolution-academy' %}">Evolution Academy</a></li>
+						<li><a class="dropdown-item" href="{% url 'evolution-futsal-club' %}">Evolution Futsal Club</a></li>
+					</ul>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link disabled" href="{% url 'private-training' %}">Private Training</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link disabled" href="{% url 'camps' %}">Summer Camps</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link disabled" href="{% url 'tournaments' %}">Tournaments</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link disabled" href="{% url 'schools' %}">Schools</a>
+				</li>
+				<li class="nav-item">
+				<a class="nav-link disabled" href="{% url 'about-us' %}">About Us</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="{% url 'enroll' %}"> Enroll </a>
+				</li>
+			</ul>
+			<form class="d-flex" role="search">
+				<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+				<button class="btn" type="submit">Search</button>
+			</form>
+		</div>
+	</div>
+</nav>

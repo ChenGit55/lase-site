@@ -48,15 +48,20 @@ def create_user_view(request):
 
 @login_required
 def profile_view(request, user_id):
-    user = get_object_or_404(User, pk=user_id)
-    if request.user.id != user.id:
-        return HttpResponseForbidden()
-    students = Student.objects.filter(user=user)
-    context = {
-        'user': user,
-        'students': students
-    }
-    return render(request, 'profile.html', context)
+    try:
+        user = get_object_or_404(User, pk=user_id)
+        if request.user.id != user.id:
+            return redirect(reverse_lazy(settings.ERROR_REDIRECT_URL))
+        else:
+            students = Student.objects.filter(user=user)
+            context = {
+                'user': user,
+                'students': students
+            }
+        return render(request, 'profile.html', context)
+    except:
+        return redirect(reverse_lazy(settings.ERROR_REDIRECT_URL))
+
 
 @login_required
 def edit_profile_view(request, user_id):

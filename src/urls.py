@@ -18,14 +18,16 @@ from django.urls import path, include
 from .views import (
     home_view,
     aboutus_view,
+    errors_view,
 )
 
 urlpatterns = [
-    path('', home_view, name='home'),
+    path('', home_view, name="home"),
     path("about-us/", aboutus_view, name="about-us"),
     path('programs/', include('programs.urls')),
     path('students/', include('students.urls')),
     path('admin/', admin.site.urls),
     path('payments/', include('payments.urls')),
     path('accounts/', include('accounts.urls')),
+    path('error/', errors_view, name="error"),
 ]

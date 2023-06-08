@@ -5,3 +5,6 @@ def home_view(request):
 
 def aboutus_view(request):
     return render(request, 'about-us.html', context={})
+
+def errors_view(request):
+    return render(request, 'error.html', context={})

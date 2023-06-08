@@ -6,6 +6,7 @@ from .forms import CustomUserChangeForm
 from django.urls import reverse_lazy
 from django.conf import settings
 from django.contrib import messages
+from django.http import HttpResponseForbidden
 from students.models import Student
 
 User = get_user_model()
@@ -48,6 +49,8 @@ def create_user_view(request):
 @login_required
 def profile_view(request, user_id):
     user = get_object_or_404(User, pk=user_id)
+    if request.user.id != user.id:
+        return HttpResponseForbidden()
     students = Student.objects.filter(user=user)
     context = {
         'user': user,

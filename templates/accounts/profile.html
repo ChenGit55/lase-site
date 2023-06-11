@@ -15,6 +15,7 @@
 			<a class="btn btn-primary mt-2" href="{% url 'edit-profile' user.id %}" role="button">Edit</a>
 		</div>
 	</div>
+	<a class="btn btn-primary m-3 p-3" href="{% url 'enroll' %}" role="button">Enroll Now</a>
 	<h3 class='mt-3'>Students</h3>
 	<ul>
 		{% for student in students %}

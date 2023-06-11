@@ -3,39 +3,35 @@
 {% block title %}Students{% endblock title %}
 {% block page_title %}Students{% endblock page_title %}
 {% block content %}
-  <main style="display: flex; justify-content: center;">
-    <section>
-      <form  style="text-align: center;" action="" method="GET">
-        <!--<input type="text" name="q">-->
-        <select name="studentsfilter" id="studentsfilter">
-          <option value="All">All</option>
-          <option value="Lion Cubs">Lion Cubs</option>
-          <option value="Evolution Academy">Evolution Academy</option>
-          <option value="Evolution Futsal Club">Evolution Futsal Club</option>
-        </select>
-        <input type="submit" value="Filter">
-      </form>
-      {% for s in students %}
-        <section style="border-bottom: 2px solid var(--primary); padding-bottom: 10px;">
-          <div class="d-inline-flex student-card" onclick="location.href='{{ s.get_absolute_url }}'">
-            <div class="d-inline-flex inner-card">
-              <div class="card-pic">
-                <img class="profile-pic" src="{% static 'src/img/user-icon.svg' %}" alt="profile-pic">
-                <p style="text-align: center; font-weight: 800; font-size: 25pt;"><strong>{{ s.fname }}</strong></p>
-              </div>
-              <div class="card-content d-none d-lg-block">
-                <p style=" font-weight: 500; font-size: 20pt;"><strong>Informations</strong></p>
-                <p>Full Name: {{ s.fname }} {{ s.lname }}</p>
-                <p>Age: {{ s.age_calc }}</p>
-                <p>Program: {{ s.program }}</p>
-                <p>Parent: {{ s.parent_fname }} {{ s.parent_lname }}</p>
-                <p>Tel: {{ s.parent_phone }}</p>
-              </div>
-            </div>
-          </div>
-        </section>
-      {% endfor %}
-    </section>
-  </main>
+<form  style="text-align: center;" action="" method="GET">
+<!--<input type="text" name="q">-->
+<select name="studentsfilter" id="studentsfilter">
+	<option value="All">All</option>
+	<option value="Lion Cubs">Lion Cubs</option>
+	<option value="Evolution Academy">Evolution Academy</option>
+	<option value="Evolution Futsal Club">Evolution Futsal Club</option>
+</select>
+<input type="submit" value="Filter">
+</form>
+{% for s in students %}
+<section style="border-bottom: 2px solid var(--primary); padding-bottom: 10px;">
+	<div class="d-inline-flex student-card" onclick="location.href='{{ s.get_absolute_url }}'">
+		<div class="d-inline-flex inner-card">
+			<div class="card-pic">
+				<img class="profile-pic" src="{% static 'src/img/user-icon.svg' %}" alt="profile-pic">
+				<p style="text-align: center; font-weight: 800; font-size: 25pt;"><strong>{{ s.fname }}</strong></p>
+			</div>
+			<div class="card-content d-none d-lg-block">
+				<p style=" font-weight: 500; font-size: 20pt;"><strong>Informations</strong></p>
+				<p>Full Name: {{ s.fname }} {{ s.lname }}</p>
+				<p>Age: {{ s.age_calc }}</p>
+				<p>Program: {{ s.program }}</p>
+				<p>Parent: {{ s.parent_fname }} {{ s.parent_lname }}</p>
+				<p>Tel: {{ s.parent_phone }}</p>
+			</div>
+		</div>
+	</div>
+</section>
+{% endfor %}
 {% endblock content %}
 {% block script %}{% endblock script %}

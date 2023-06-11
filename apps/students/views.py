@@ -1,10 +1,14 @@
 from django.http import Http404
+from django.contrib.auth import get_user_model
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from .models import Student, Statistic
 from .forms import StudentForm, StatisticForm
 from .utils import superuser_required
 from django.contrib import messages
 from django.urls import reverse
+
+User = get_user_model()
 
 def student_search_view(request):
     query_dic = request.GET #get the input text by the name
@@ -33,13 +37,16 @@ def student_view(request, slug=None):
     }
     return render(request, 'students.html', context)
 
+@login_required
 def student_create_view(request):
     form = StudentForm(request.POST or None)
     context= {
         'form': form
     }
     if form.is_valid():
-        student = form.save()
+        student = form.save(commit=False)
+        student.user = request.user
+        student.save()
         context['form'] = StudentForm() #reinitializing form
         messages.success(request, 'Student enrolled successfully!')
         return redirect('enroll-success')

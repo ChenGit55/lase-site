@@ -49,7 +49,7 @@ def student_create_view(request):
         student.save()
         context['form'] = StudentForm() #reinitializing form
         messages.success(request, 'Student enrolled successfully!')
-        return redirect('enroll-success')
+        return redirect('subscription')
     return render(request, 'enroll.html', context)
 
 @superuser_required

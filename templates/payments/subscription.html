@@ -1,21 +1,20 @@
 {% extends "base.html" %}
 {% block title %}Checkout{% endblock title %}
-{% block page_title %}Cobrança Mensal{% endblock page_title %}
+{% block page_title %}Checkout{% endblock page_title %}
 {% block content %}
     <form id="payment-form" method="POST">
         {% csrf_token %}
         <div>
             <label for="card-element">
-                Informações do cartão de crédito
+                Card Infomation!
             </label>
-            <div id="card-element">
-                <!-- Elemento do cartão do Stripe será inserido aqui -->
+            <div id="card-element" style="width: 500px;">
             </div>
-            <!-- Usado para exibir erros de formulário -->
+            <!-- Error alerts -->
             <div id="card-errors" role="alert"></div>
         </div>
         <br>
-        <button type="submit">Pagar</button>
+        <button type="submit">Enroll</button>
     </form>
 {% endblock content %}
 {% block script %}
@@ -30,11 +29,11 @@
             event.preventDefault();
             stripe.createToken(cardElement).then(function(result) {
                 if (result.error) {
-                    // Informa o usuário sobre o erro
+                    // display errors
                     var errorElement = document.getElementById('card-errors');
                     errorElement.textContent = result.error.message;
                 } else {
-                    // Insere o token de pagamento no formulário e envia o formulário para a view process_payment
+                    // Insert the payment token in form and submit the form to process_payment view
                     var tokenInput = document.createElement('input');
                     tokenInput.type = 'hidden';
                     tokenInput.name = 'stripeToken';
@@ -43,7 +42,7 @@
                     var amountInput = document.createElement('input');
                     amountInput.type = 'hidden';
                     amountInput.name = 'amount';
-                    amountInput.value = '10000'; // 100,00 em centavos
+                    amountInput.value = '10000'; // 100,00 in cents
                     form.appendChild(amountInput);
                     form.submit();
                 }

@@ -46,10 +46,13 @@ def subscription_view(request):
                 description="Mensalidade",
                 source=token,
             )
-            return HttpResponse("Charge made successfully.")
+            return render(request, "successfully-enrolled.html",{})
         except stripe.error.CardError as e:
             # Handle invalid card erros
             return HttpResponse("Error processing billing: " + str(e))
     else:
         # Renders the template with the billing form
         return render(request, "subscription.html", {'stripepb' : STRIPE_PK})
+    
+def successfully_enrolled_view(request):
+    return render(request, "successfuly-enrolled.html",{})
